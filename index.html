@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Приглашение на свадьбу — Данияр & Аружан</title>
+    
+    <!-- Meta tags for SEO & Social Sharing -->
+    <meta name="description" content="Дорогие близкие! Приглашаем вас разделить с нами радость этого особенного дня. Свадьба Данияра и Аружан.">
+    <meta property="og:title" content="Свадебное приглашение — Данияр & Аружан">
+    <meta property="og:description" content="25 сентября 2026 | Алматы. Ждем вас на нашем торжестве!">
+    <meta property="og:image" content="assets/couple.png">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Canvas Confetti Library for RSVP celebration -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <!-- Custom Styling -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Background Petals / Sparkles Canvas -->
+    <canvas id="petalsCanvas" class="petals-canvas"></canvas>
+
+    <!-- Floating Audio Toggle Button -->
+    <div class="audio-control" id="audioToggle" title="Музыкальное сопровождение">
+        <div class="audio-icon"><i class="fa-solid fa-music"></i></div>
+        <span class="audio-text">Включить музыку</span>
+    </div>
+    <audio id="bgMusic" loop src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=wedding-romantic-piano-112199.mp3"></audio>
+
+    <!-- Hero Section -->
+    <header class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="monogram-badge fade-in">
+                <span class="monogram-text">D & A</span>
+            </div>
+            
+            <p class="hero-subtitle fade-in">СВАДЕБНОЕ ПРИГЛАШЕНИЕ</p>
+            
+            <h1 class="hero-title fade-in">Данияр <span class="ampersand">&</span> Аружан</h1>
+            
+            <div class="hero-divider fade-in">
+                <span class="line"></span>
+                <i class="fa-solid fa-heart heart-icon"></i>
+                <span class="line"></span>
+            </div>
+            
+            <p class="hero-date fade-in">25 СЕНТЯБРЯ 2026</p>
+            <p class="hero-city fade-in"><i class="fa-solid fa-location-dot"></i> г. Алматы</p>
+            
+            <a href="#rsvp" class="btn btn-primary hero-btn fade-in">
+                <i class="fa-regular fa-envelope"></i> Подтвердить присутствие
+            </a>
+        </div>
+        
+        <a href="#countdown" class="scroll-down-hint">
+            <span>Листайте вниз</span>
+            <i class="fa-solid fa-chevron-down"></i>
+        </a>
+    </header>
+
+    <!-- Countdown Section -->
+    <section id="countdown" class="section countdown-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">ОБРАТНЫЙ ОТСЧЕТ</span>
+                <h2 class="section-title">До нашей свадьбы осталось</h2>
+            </div>
+            
+            <div class="timer-grid">
+                <div class="timer-card">
+                    <span class="timer-number" id="days">00</span>
+                    <span class="timer-label">дней</span>
+                </div>
+                <div class="timer-card">
+                    <span class="timer-number" id="hours">00</span>
+                    <span class="timer-label">часов</span>
+                </div>
+                <div class="timer-card">
+                    <span class="timer-number" id="minutes">00</span>
+                    <span class="timer-label">минут</span>
+                </div>
+                <div class="timer-card">
+                    <span class="timer-number" id="seconds">00</span>
+                    <span class="timer-label">секунд</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Welcome & Story Section -->
+    <section class="section story-section">
+        <div class="container">
+            <div class="story-grid">
+                <div class="story-image-wrapper">
+                    <img src="assets/couple.png" alt="Данияр и Аружан" class="story-img">
+                    <div class="story-frame"></div>
+                </div>
+                
+                <div class="story-text-content">
+                    <span class="section-tag">ДОРОГИЕ НАШИ ГОСТИ!</span>
+                    <h2 class="section-title">Приглашаем вас на наш праздник!</h2>
+                    
+                    <div class="quote-box">
+                        <p>«Любовь — это когда два человека смотрят не друг на друга, а в одном направлении.»</p>
+                    </div>
+                    
+                    <p class="story-paragraph">
+                        В этот особенный день мы хотим соединить наши судьбы и создать новую семью. 
+                        Для нас огромная радость разделить этот счастливый и незабываемый момент в кругу самых близких и дорогих людей.
+                    </p>
+                    <p class="story-paragraph">
+                        Ваша поддержка, улыбки и тёплые слова станут главным украшением нашего свадьбы!
+                    </p>
+
+                    <div class="hosts-signature">
+                        <p class="with-love">С любовью и уважением,</p>
+                        <p class="hosts-names">Данияр & Аружан</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location & Venue Section -->
+    <section id="location" class="section location-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">МЕСТО ТОРЖЕСТВА</span>
+                <h2 class="section-title">Локация & Время</h2>
+            </div>
+
+            <div class="location-card">
+                <div class="location-info">
+                    <div class="info-badge"><i class="fa-solid fa-hotel"></i></div>
+                    <h3 class="venue-name">Ресторан «Grand Ballroom Royal»</h3>
+                    <p class="venue-address"><i class="fa-solid fa-location-dot"></i> мкр. Самал-2, ул. Жолдасбекова, 15, г. Алматы</p>
+                    <p class="venue-time"><i class="fa-regular fa-clock"></i> Сбор гостей: <strong>16:30</strong> | Начало: <strong>17:30</strong></p>
+                    
+                    <div class="maps-buttons">
+                        <a href="https://2gis.kz/almaty/search/Grand%20Ballroom" target="_blank" class="btn btn-gis">
+                            <i class="fa-solid fa-compass"></i> Открыть в 2GIS
+                        </a>
+                        <a href="https://yandex.ru/maps/?text=Grand+Ballroom+Almaty" target="_blank" class="btn btn-yandex">
+                            <i class="fa-solid fa-map-pin"></i> Яндекс.Карты
+                        </a>
+                        <a href="https://maps.google.com/?q=Grand+Ballroom+Almaty" target="_blank" class="btn btn-google">
+                            <i class="fa-brands fa-google"></i> Google Maps
+                        </a>
+                    </div>
+                    
+                    <div class="calendar-btn-wrapper">
+                        <button id="addToCalendarBtn" class="btn btn-outline">
+                            <i class="fa-regular fa-calendar-plus"></i> Добавить событие в календарь
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timing Schedule Section -->
+    <section class="section timing-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">ПРОГРАММА ДНЯ</span>
+                <h2 class="section-title">Тайминг события</h2>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-icon"><i class="fa-solid fa-champagne-glasses"></i></div>
+                    <div class="timeline-content">
+                        <span class="timeline-time">16:30</span>
+                        <h4 class="timeline-title">Сбор гостей & Welcome Drink</h4>
+                        <p class="timeline-desc">Легкие закуски, фотозона, живая струнная музыка и встреча близких.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-icon"><i class="fa-solid fa-heart-circle-check"></i></div>
+                    <div class="timeline-content">
+                        <span class="timeline-time">17:30</span>
+                        <h4 class="timeline-title">Беташар & Выездная регистрация</h4>
+                        <p class="timeline-desc">Торжественный выход молодоженов и обряд знакомства с семьей.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-icon"><i class="fa-solid fa-utensils"></i></div>
+                    <div class="timeline-content">
+                        <span class="timeline-time">18:30</span>
+                        <h4 class="timeline-title">Свадебный Банкет</h4>
+                        <p class="timeline-desc">Шоу-программа, поздравления родственников, танцы и конкурсы.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-icon"><i class="fa-solid fa-cake-candles"></i></div>
+                    <div class="timeline-content">
+                        <span class="timeline-time">22:30</span>
+                        <h4 class="timeline-title">Свадебный Торт & Первый танец</h4>
+                        <p class="timeline-desc">Вынос праздничного торта и романтический танец молодушек.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-icon"><i class="fa-solid fa-sparkles"></i></div>
+                    <div class="timeline-content">
+                        <span class="timeline-time">23:30</span>
+                        <h4 class="timeline-title">Завершение вечера & Салют</h4>
+                        <p class="timeline-desc">Запуск бенгальских огней, памятные фото и слова благодарности.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dress Code Section -->
+    <section class="section dresscode-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">ПОЖЕЛАНИЯ К НАРЯДАМ</span>
+                <h2 class="section-title">Дресс-код</h2>
+            </div>
+
+            <div class="dresscode-card">
+                <p class="dresscode-text">
+                    Мы будем очень признательны, если вы при выборе нарядов отдадите преимущество цветам нашей свадебной палитры:
+                </p>
+
+                <div class="color-palette">
+                    <div class="color-swatch" style="background-color: #E8D3C5;" data-color="Айвори / Крем">
+                        <span class="color-tooltip">Айвори</span>
+                    </div>
+                    <div class="color-swatch" style="background-color: #D4A373;" data-color="Капучино / Золото">
+                        <span class="color-tooltip">Капучино</span>
+                    </div>
+                    <div class="color-swatch" style="background-color: #E0A96D;" data-color="Теплая бронза">
+                        <span class="color-tooltip">Бронза</span>
+                    </div>
+                    <div class="color-swatch" style="background-color: #A3B18A;" data-color="Шалфей / Олива">
+                        <span class="color-tooltip">Шалфей</span>
+                    </div>
+                    <div class="color-swatch" style="background-color: #344E41;" data-color="Глубокий изумруд">
+                        <span class="color-tooltip">Изумруд</span>
+                    </div>
+                    <div class="color-swatch" style="background-color: #2B2D42;" data-color="Классический синий">
+                        <span class="color-tooltip">Графит / Синий</span>
+                    </div>
+                </div>
+
+                <div class="dresscode-tips">
+                    <div class="tip-box">
+                        <i class="fa-solid fa-person-dress tip-icon"></i>
+                        <h4>Для дам</h4>
+                        <p>Вечерние или коктейльные платья в пастельных или благородных тёмных тонах.</p>
+                    </div>
+                    <div class="tip-box">
+                        <i class="fa-solid fa-user-tie tip-icon"></i>
+                        <h4>Для джентльменов</h4>
+                        <p>Классический костюм, смокинг или сочетание брюк с элегантной рубашкой.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RSVP Section -->
+    <section id="rsvp" class="section rsvp-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">ПОДТВЕРЖДЕНИЕ ПРИСУТСТВИЯ</span>
+                <h2 class="section-title">Анкета Гостя (RSVP)</h2>
+                <p class="section-subtitle">Пожалуйста, подтвердите ваше присутствие до <strong>10 сентября 2026 года</strong></p>
+            </div>
+
+            <form id="rsvpForm" class="rsvp-form">
+                <div class="form-group">
+                    <label for="guestName" class="form-label">Ваше Имя и Фамилия <span class="required">*</span></label>
+                    <input type="text" id="guestName" name="guestName" class="form-control" placeholder="Например: Арман Сарсенов" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Сможете ли вы присутствовать? <span class="required">*</span></label>
+                    <div class="radio-group">
+                        <label class="radio-card">
+                            <input type="radio" name="attendance" value="yes" checked>
+                            <span class="radio-custom"></span>
+                            <span class="radio-text"><i class="fa-solid fa-circle-check"></i> Да, с удовольствием приду!</span>
+                        </label>
+                        <label class="radio-card">
+                            <input type="radio" name="attendance" value="no">
+                            <span class="radio-custom"></span>
+                            <span class="radio-text"><i class="fa-solid fa-circle-xmark"></i> К сожалению, не смогу</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group" id="plusOneGroup">
+                    <label for="plusOne" class="form-label">Будете ли вы со спутником/спутницей?</label>
+                    <input type="text" id="plusOne" name="plusOne" class="form-control" placeholder="Имя и фамилия вашего спутника (+1)">
+                </div>
+
+                <div class="form-group" id="drinksGroup">
+                    <label class="form-label">Ваши предпочтения по напиткам:</label>
+                    <div class="checkbox-grid">
+                        <label class="checkbox-card">
+                            <input type="checkbox" name="drinks" value="Красное вино">
+                            <span class="checkbox-custom"></span>
+                            <span>🍷 Красное вино</span>
+                        </label>
+                        <label class="checkbox-card">
+                            <input type="checkbox" name="drinks" value="Белое вино">
+                            <span class="checkbox-custom"></span>
+                            <span>🥂 Белое вино</span>
+                        </label>
+                        <label class="checkbox-card">
+                            <input type="checkbox" name="drinks" value="Коньяк / Виски">
+                            <span class="checkbox-custom"></span>
+                            <span>🥃 Коньяк / Виски</span>
+                        </label>
+                        <label class="checkbox-card">
+                            <input type="checkbox" name="drinks" value="Безалкогольные">
+                            <span class="checkbox-custom"></span>
+                            <span>🧃 Безалкогольные напитки</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="notes" class="form-label">Пожелания или аллергии на продукты:</label>
+                    <textarea id="notes" name="notes" class="form-control" rows="3" placeholder="Напишите, если у вас есть особые предпочтения по еде..."></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block">
+                    <i class="fa-solid fa-paper-plane"></i> Отправить ответ
+                </button>
+            </form>
+
+            <div id="rsvpSuccess" class="rsvp-success-message hidden">
+                <div class="success-icon"><i class="fa-solid fa-circle-check"></i></div>
+                <h3>Спасибо за ваш ответ!</h3>
+                <p id="successText">Мы очень ждем встречи с вами на нашем празднике!</p>
+                <button id="rsvpResetBtn" class="btn btn-outline btn-sm">Отправить еще один ответ</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guestbook Section -->
+    <section class="section guestbook-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">КНИГА ПОЖЕЛАНИЙ</span>
+                <h2 class="section-title">Слова и поздравления</h2>
+                <p class="section-subtitle">Оставьте ваше тёплое напутствие для молодоженов</p>
+            </div>
+
+            <form id="wishForm" class="wish-form">
+                <div class="form-group-inline">
+                    <input type="text" id="wishAuthor" class="form-control" placeholder="Ваше имя" required>
+                    <input type="text" id="wishText" class="form-control" placeholder="Напишите ваше пожелание..." required>
+                    <button type="submit" class="btn btn-primary"><i class="fa-solid fa-heart"></i> Отправить</button>
+                </div>
+            </form>
+
+            <div id="wishesList" class="wishes-grid">
+                <!-- Wishes dynamically loaded from JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacts Section -->
+    <section class="section contacts-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">ВОПРОСЫ И СВЯЗЬ</span>
+                <h2 class="section-title">Контакты</h2>
+            </div>
+
+            <div class="contacts-grid">
+                <div class="contact-card">
+                    <div class="contact-avatar"><i class="fa-solid fa-user-tie"></i></div>
+                    <h4>Жених — Данияр</h4>
+                    <a href="https://wa.me/77011234567" target="_blank" class="btn btn-whatsapp">
+                        <i class="fa-brands fa-whatsapp"></i> Написать в WhatsApp
+                    </a>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-avatar"><i class="fa-solid fa-ring"></i></div>
+                    <h4>Организатор / Тамада</h4>
+                    <a href="https://wa.me/77071234567" target="_blank" class="btn btn-whatsapp">
+                        <i class="fa-brands fa-whatsapp"></i> По всем вопросам
+                    </a>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-avatar"><i class="fa-solid fa-person-dress"></i></div>
+                    <h4>Невеста — Аружан</h4>
+                    <a href="https://wa.me/77021234567" target="_blank" class="btn btn-whatsapp">
+                        <i class="fa-brands fa-whatsapp"></i> Написать в WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container text-center">
+            <p class="footer-names">Данияр & Аружан</p>
+            <p class="footer-date">25.09.2026 | С любовью для наших гостей</p>
+        </div>
+    </footer>
+
+    <!-- Script JS -->
+    <script src="app.js"></script>
+</body>
+</html>
