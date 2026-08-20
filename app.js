@@ -144,16 +144,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const rsvpResetBtn = document.getElementById('rsvpResetBtn');
     const attendanceRadios = document.getElementsByName('attendance');
     const plusOneGroup = document.getElementById('plusOneGroup');
-    const drinksGroup = document.getElementById('drinksGroup');
 
     attendanceRadios.forEach(radio => {
         radio.addEventListener('change', (e) => {
             if (e.target.value === 'no') {
                 plusOneGroup.style.display = 'none';
-                drinksGroup.style.display = 'none';
             } else {
                 plusOneGroup.style.display = 'block';
-                drinksGroup.style.display = 'block';
             }
         });
     });
@@ -195,14 +192,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const plusOne = document.getElementById('plusOne').value.trim();
         const notes = document.getElementById('notes').value.trim();
 
-        const selectedDrinks = Array.from(document.querySelectorAll('input[name="drinks"]:checked'))
-            .map(cb => cb.value);
-
         const rsvpData = {
             guestName,
             attendance: attendance === 'yes' ? 'Присутствует' : 'Не сможет прийти',
             plusOne,
-            drinks: selectedDrinks.join(', ') || 'Не выбрано',
             notes,
             timestamp: new Date().toISOString()
         };
