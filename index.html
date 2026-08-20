@@ -24,8 +24,19 @@
 
     <!-- Custom Styling -->
     <link rel="stylesheet" href="styles.css">
-</head>
 <body>
+
+    <!-- Theme Switcher Floating Bar (5 Design Themes) -->
+    <div class="theme-switcher-bar" id="themeSwitcherBar">
+        <span class="switcher-label"><i class="fa-solid fa-palette"></i> Варианты дизайна:</span>
+        <div class="theme-buttons">
+            <button class="theme-btn active" data-theme="classic" title="Классический Айвори">✨ Классик</button>
+            <button class="theme-btn" data-theme="midnight" title="Midnight Luxe (Тёмный)">🌙 Midnight</button>
+            <button class="theme-btn" data-theme="emerald" title="Изумрудный Ботэ">🌿 Изумруд</button>
+            <button class="theme-btn" data-theme="blush" title="Пыльная Роза">🌸 Роза</button>
+            <button class="theme-btn" data-theme="ethno" title="Казахский Этно-Шик">⚜️ Этно</button>
+        </div>
+    </div>
 
     <!-- Background Petals / Sparkles Canvas -->
     <canvas id="petalsCanvas" class="petals-canvas"></canvas>

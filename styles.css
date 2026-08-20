@@ -32,6 +32,140 @@
     --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+/* 1. MIDNIGHT GOLD THEME (Тёмный Королевский) */
+[data-theme="midnight"] {
+    --bg-main: #0B0F19;
+    --bg-card: #151D2A;
+    --bg-dark: #070A10;
+    --bg-soft-gold: #111827;
+    --text-primary: #F8FAFC;
+    --text-secondary: #94A3B8;
+    --primary-gold: #F59E0B;
+    --primary-gold-hover: #D97706;
+    --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.4);
+    --shadow-medium: 0 15px 35px rgba(245, 158, 11, 0.25);
+}
+
+[data-theme="midnight"] .form-control,
+[data-theme="midnight"] .radio-card,
+[data-theme="midnight"] .checkbox-card,
+[data-theme="midnight"] .timer-card,
+[data-theme="midnight"] .timeline-content,
+[data-theme="midnight"] .location-card,
+[data-theme="midnight"] .dresscode-card,
+[data-theme="midnight"] .rsvp-form,
+[data-theme="midnight"] .wish-card,
+[data-theme="midnight"] .contact-card {
+    background: #151D2A;
+    border-color: rgba(245, 158, 11, 0.3);
+    color: #F8FAFC;
+}
+
+[data-theme="midnight"] .form-control {
+    background: #1E293B;
+    color: #F8FAFC;
+}
+
+[data-theme="midnight"] .radio-text {
+    color: #F8FAFC;
+}
+
+/* 2. EMERALD BOTANICAL THEME (Изумрудный Ботэ) */
+[data-theme="emerald"] {
+    --bg-main: #F4F7F4;
+    --bg-card: #FFFFFF;
+    --bg-dark: #0D2818;
+    --bg-soft-gold: #E8EFE9;
+    --text-primary: #1B4332;
+    --text-secondary: #40916C;
+    --primary-gold: #2D6A4F;
+    --primary-gold-hover: #1B4332;
+    --shadow-medium: 0 15px 35px rgba(45, 106, 79, 0.2);
+}
+
+/* 3. DUSTY ROSE THEME (Пыльная Роза) */
+[data-theme="blush"] {
+    --bg-main: #FDF6F6;
+    --bg-card: #FFFFFF;
+    --bg-dark: #2B181A;
+    --bg-soft-gold: #F9EBEA;
+    --text-primary: #4A2E35;
+    --text-secondary: #9E6B75;
+    --primary-gold: #D47A85;
+    --primary-gold-hover: #B85B67;
+    --shadow-medium: 0 15px 35px rgba(212, 122, 133, 0.2);
+}
+
+/* 4. KAZAKH ETHNO GOLD THEME (Казахский Этно-Шик) */
+[data-theme="ethno"] {
+    --bg-main: #FAF8F5;
+    --bg-card: #FFFFFF;
+    --bg-dark: #3B0910;
+    --bg-soft-gold: #F5EAE8;
+    --text-primary: #2C0E14;
+    --text-secondary: #8C4855;
+    --primary-gold: #C8963E;
+    --primary-gold-hover: #A77827;
+    --shadow-medium: 0 15px 35px rgba(200, 150, 62, 0.25);
+}
+
+/* THEME SWITCHER BAR STYLING */
+.theme-switcher-bar {
+    position: fixed;
+    top: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(28, 25, 23, 0.88);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    padding: 8px 18px;
+    border-radius: var(--radius-full);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    max-width: 95vw;
+    overflow-x: auto;
+}
+
+.switcher-label {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.9);
+    white-space: nowrap;
+}
+
+.theme-buttons {
+    display: flex;
+    gap: 6px;
+}
+
+.theme-btn {
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: white;
+    padding: 6px 14px;
+    border-radius: var(--radius-full);
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: var(--transition);
+}
+
+.theme-btn:hover {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+.theme-btn.active {
+    background: var(--primary-gold);
+    border-color: var(--primary-gold);
+    color: white;
+    box-shadow: 0 4px 12px rgba(212, 163, 115, 0.4);
+}
+
 /* Base resets */
 *, *::before, *::after {
     box-sizing: border-box;

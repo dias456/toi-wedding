@@ -1,6 +1,46 @@
 document.addEventListener('DOMContentLoaded', () => {
     
     /* ==========================================================================
+       0. THEME SWITCHER CONTROLLER (5 THEMES & URL PARAM SUPPORT)
+       ========================================================================== */
+    const themeBtns = document.querySelectorAll('.theme-btn');
+
+    function setTheme(themeName) {
+        if (themeName === 'classic') {
+            document.documentElement.removeAttribute('data-theme');
+        } else {
+            document.documentElement.setAttribute('data-theme', themeName);
+        }
+
+        themeBtns.forEach(btn => {
+            if (btn.getAttribute('data-theme') === themeName) {
+                btn.classList.add('active');
+            } else {
+                btn.classList.remove('active');
+            }
+        });
+
+        localStorage.setItem('wedding_theme', themeName);
+    }
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const themeParam = urlParams.get('theme');
+    const savedTheme = localStorage.getItem('wedding_theme') || 'classic';
+
+    if (themeParam && ['classic', 'midnight', 'emerald', 'blush', 'ethno'].includes(themeParam)) {
+        setTheme(themeParam);
+    } else {
+        setTheme(savedTheme);
+    }
+
+    themeBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const theme = btn.getAttribute('data-theme');
+            setTheme(theme);
+        });
+    });
+    
+    /* ==========================================================================
        1. FALLING PETALS & SPARKLES CANVAS ANIMATION ENGINE
        ========================================================================== */
     const canvas = document.getElementById('petalsCanvas');
