@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Данияр & Аружан — Midnight Celebration 🌙</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <link rel="stylesheet" href="design5.css">
+</head>
+<body>
+
+    <!-- Ambient Glowing Gradient Orbs in Background -->
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+    <div class="glow-orb orb-3"></div>
+
+    <!-- Nav Switcher -->
+    <nav class="tpl-nav">
+        <span class="tpl-nav-title"><i class="fa-solid fa-layer-group"></i> Шаблоны дизайна:</span>
+        <div class="tpl-nav-links">
+            <a href="index.html" class="tpl-link">1. Классика</a>
+            <a href="design2.html" class="tpl-link">2. Editorial Журнал</a>
+            <a href="design3.html" class="tpl-link">3. Этно-Той ⚜️</a>
+            <a href="design4.html" class="tpl-link">4. Polaroid Story</a>
+            <a href="design5.html" class="tpl-link active">5. Dark Glass 🌙</a>
+        </div>
+    </nav>
+
+    <!-- Audio Player -->
+    <div class="neon-audio" id="audioToggle">
+        <i class="fa-solid fa-waveform-lines"></i>
+        <span>Soundtrack</span>
+    </div>
+    <audio id="bgMusic" loop src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=wedding-romantic-piano-112199.mp3"></audio>
+
+    <!-- Hero: Cyber Glassmorphism -->
+    <header class="neon-hero">
+        <div class="neon-container text-center">
+            <div class="neon-badge-pill">
+                <span class="pulse-dot"></span> WEDDING CELEBRATION
+            </div>
+
+            <h1 class="neon-names">DANIYAR <br><span class="neon-glow-text">&</span><br> ARUZHAN</h1>
+            <p class="neon-lead">25.09.2026 • GRAND BALLROOM ALMATY</p>
+
+            <div class="neon-glass-timer">
+                <div class="g-box">
+                    <span class="num" id="d5-days">00</span>
+                    <span class="lbl">DAYS</span>
+                </div>
+                <div class="g-box">
+                    <span class="num" id="d5-hours">00</span>
+                    <span class="lbl">HOURS</span>
+                </div>
+                <div class="g-box">
+                    <span class="num" id="d5-minutes">00</span>
+                    <span class="lbl">MINUTES</span>
+                </div>
+                <div class="g-box">
+                    <span class="num" id="d5-seconds">00</span>
+                    <span class="lbl">SECONDS</span>
+                </div>
+            </div>
+
+            <a href="#rsvp" class="neon-cta">Подтвердить RSVP <i class="fa-solid fa-sparkles"></i></a>
+        </div>
+    </header>
+
+    <!-- Glass Invitation Card -->
+    <section class="neon-sec">
+        <div class="neon-container-narrow">
+            <div class="glass-card">
+                <span class="glass-tag">ПРИГЛАШЕНИЕ</span>
+                <h2 class="glass-title">Разделите эту особенную ночь с нами</h2>
+                <p class="glass-p">Мы начинаем новую главу нашей жизни и приглашаем вас стать частью незабываемого праздника, наполненного эмоциями, огнями, музыкой и искренней любовью.</p>
+                
+                <div class="glass-quote">
+                    «Два сердца, одна мечта и бесконечная вселенная впереди.»
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Schedule: Glowing Glass Timeline -->
+    <section class="neon-sec">
+        <div class="neon-container">
+            <div class="text-center">
+                <span class="glass-tag">TIMELINE</span>
+                <h2 class="neon-sec-title">Программа вечера</h2>
+            </div>
+
+            <div class="neon-schedule-grid">
+                <div class="neon-card">
+                    <div class="card-glow"></div>
+                    <span class="neon-time">16:30</span>
+                    <h4>Welcome & Cocktails</h4>
+                    <p>Сбор гостей, DJ-сет, фотозона и приветственные напитки.</p>
+                </div>
+                <div class="neon-card">
+                    <div class="card-glow"></div>
+                    <span class="neon-time">17:30</span>
+                    <h4>Беташар Ceremony</h4>
+                    <p>Торжественная церемония и традиционный обряд.</p>
+                </div>
+                <div class="neon-card">
+                    <div class="card-glow"></div>
+                    <span class="neon-time">18:30</span>
+                    <h4>Gala Dinner</h4>
+                    <p>Праздничный банкет, поздравления, шоу и танцы.</p>
+                </div>
+                <div class="neon-card">
+                    <div class="card-glow"></div>
+                    <span class="neon-time">22:30</span>
+                    <h4>Cake & Neon Fireworks</h4>
+                    <p>Свадебный торт, танец молодоженов и лазерный салют.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Venue Card -->
+    <section class="neon-sec">
+        <div class="neon-container-narrow">
+            <div class="glass-card text-center">
+                <div class="loc-ico"><i class="fa-solid fa-location-crosshairs"></i></div>
+                <h3 class="glass-loc-title">Grand Ballroom Royal</h3>
+                <p class="glass-loc-addr">мкр. Самал-2, ул. Жолдасбекова, 15, Алматы</p>
+                <p class="glass-loc-time">Начало сбора гостей в 16:30</p>
+
+                <div class="neon-map-actions">
+                    <a href="https://2gis.kz/almaty/search/Grand%20Ballroom" target="_blank" class="btn-neon-outline">2GIS Навигатор</a>
+                    <a href="https://yandex.ru/maps/?text=Grand+Ballroom+Almaty" target="_blank" class="btn-neon-outline">Яндекс.Карты</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RSVP Section -->
+    <section id="rsvp" class="neon-sec">
+        <div class="neon-container-narrow">
+            <div class="glass-card">
+                <div class="text-center">
+                    <span class="glass-tag">RSVP</span>
+                    <h2 class="glass-title">Подтверждение присутствия</h2>
+                    <p class="glass-p">Пожалуйста, ответьте до 10 сентября 2026 г.</p>
+                </div>
+
+                <form id="d5RsvpForm" class="neon-form">
+                    <div class="n-field">
+                        <label>Ваше Имя и Фамилия *</label>
+                        <input type="text" id="d5Name" required placeholder="Арман Сарсенов">
+                    </div>
+
+                    <div class="n-field">
+                        <label>Сможете ли вы прийти? *</label>
+                        <div class="n-radio-row">
+                            <label class="n-radio">
+                                <input type="radio" name="d5Att" value="yes" checked>
+                                <span>Да, обязательно буду! ✨</span>
+                            </label>
+                            <label class="n-radio">
+                                <input type="radio" name="d5Att" value="no">
+                                <span>К сожалению, не смогу</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="n-field" id="d5PlusOneBox">
+                        <label>Имя вашего спутника/спутницы (+1)</label>
+                        <input type="text" id="d5PlusOne" placeholder="С кем вы будете">
+                    </div>
+
+                    <div class="n-field">
+                        <label>Пожелания по меню или аллергии:</label>
+                        <textarea id="d5Notes" rows="3" placeholder="Особые пожелания..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-neon-submit">Отправить ответ ✦</button>
+                </form>
+
+                <div id="d5Success" class="glass-success hidden text-center">
+                    <i class="fa-solid fa-circle-check neon-check"></i>
+                    <h3>Ответ сохранен!</h3>
+                    <p>Ждем вас на нашем незабываемом празднике!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="neon-footer text-center">
+        <p class="n-f-title">DANIYAR & ARUZHAN</p>
+        <p class="n-f-sub">25.09.2026 • ALMATY</p>
+    </footer>
+
+    <script>
+        const target = new Date("September 25, 2026 16:30:00").getTime();
+        function updateTimer() {
+            const now = new Date().getTime();
+            const diff = target - now;
+            if (diff > 0) {
+                document.getElementById("d5-days").innerText = Math.floor(diff / (1000 * 60 * 60 * 24));
+                document.getElementById("d5-hours").innerText = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                document.getElementById("d5-minutes").innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                document.getElementById("d5-seconds").innerText = Math.floor((diff % (1000 * 60)) / 1000);
+            }
+        }
+        setInterval(updateTimer, 1000);
+        updateTimer();
+
+        const audio = document.getElementById("bgMusic");
+        const audioToggle = document.getElementById("audioToggle");
+        let playing = false;
+        audioToggle.addEventListener("click", () => {
+            if (playing) {
+                audio.pause();
+                playing = false;
+            } else {
+                audio.play().then(() => { playing = true; }).catch(e => console.log(e));
+            }
+        });
+
+        const rsvpForm = document.getElementById("d5RsvpForm");
+        const rsvpSuccess = document.getElementById("d5Success");
+        const plusOneBox = document.getElementById("d5PlusOneBox");
+        document.querySelectorAll("input[name="d5Att"]").forEach(r => {
+            r.addEventListener("change", e => {
+                plusOneBox.style.display = e.target.value === "no" ? "none" : "block";
+            });
+        });
+
+        rsvpForm.addEventListener("submit", e => {
+            e.preventDefault();
+            rsvpForm.classList.add("hidden");
+            rsvpSuccess.classList.remove("hidden");
+            confetti({ particleCount: 80, spread: 70, origin: { y: 0.6 } });
+        });
+    </script>
+</body>
+</html>

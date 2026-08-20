@@ -109,62 +109,35 @@
     --shadow-medium: 0 15px 35px rgba(200, 150, 62, 0.25);
 }
 
-/* THEME SWITCHER BAR STYLING */
-.theme-switcher-bar {
-    position: fixed;
-    top: 16px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 10000;
+/* THEME SWITCHER NAV BAR STYLING */
+.tpl-nav {
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+    background: #111;
+    color: #fff;
+    padding: 10px 16px;
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 12px;
-    background: rgba(28, 25, 23, 0.88);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    padding: 8px 18px;
-    border-radius: var(--radius-full);
-    border: 1px solid rgba(255, 255, 255, 0.25);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
-    max-width: 95vw;
-    overflow-x: auto;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    flex-wrap: wrap;
 }
-
-.switcher-label {
-    font-size: 0.82rem;
+.tpl-nav-title { font-size: 0.8rem; font-weight: 700; color: #D4AF37; letter-spacing: 1px; }
+.tpl-nav-links { display: flex; gap: 8px; flex-wrap: wrap; }
+.tpl-link {
+    color: #ccc;
+    background: rgba(255,255,255,0.1);
+    text-decoration: none;
+    font-size: 0.75rem;
     font-weight: 600;
-    color: rgba(255, 255, 255, 0.9);
-    white-space: nowrap;
+    padding: 5px 12px;
+    border-radius: 4px;
+    transition: 0.2s;
 }
-
-.theme-buttons {
-    display: flex;
-    gap: 6px;
-}
-
-.theme-btn {
-    background: rgba(255, 255, 255, 0.12);
-    border: 1px solid rgba(255, 255, 255, 0.25);
-    color: white;
-    padding: 6px 14px;
-    border-radius: var(--radius-full);
-    font-size: 0.8rem;
-    font-weight: 600;
-    cursor: pointer;
-    white-space: nowrap;
-    transition: var(--transition);
-}
-
-.theme-btn:hover {
-    background: rgba(255, 255, 255, 0.25);
-}
-
-.theme-btn.active {
-    background: var(--primary-gold);
-    border-color: var(--primary-gold);
-    color: white;
-    box-shadow: 0 4px 12px rgba(212, 163, 115, 0.4);
-}
+.tpl-link:hover { color: #fff; background: rgba(255,255,255,0.25); }
+.tpl-link.active { background: #D4AF37; color: #111; font-weight: 700; }
 
 /* Base resets */
 *, *::before, *::after {

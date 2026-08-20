@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Данияр & Аружан — Wedding Editorial</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Reenie+Beanie&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <link rel="stylesheet" href="design2.css">
+</head>
+<body>
+
+    <!-- Template Switcher Nav -->
+    <nav class="tpl-nav">
+        <span class="tpl-nav-title"><i class="fa-solid fa-layer-group"></i> Выберите дизайн:</span>
+        <div class="tpl-nav-links">
+            <a href="index.html" class="tpl-link">1. Классика</a>
+            <a href="design2.html" class="tpl-link active">2. Editorial Журнал</a>
+            <a href="design3.html" class="tpl-link">3. Этно-Той ⚜️</a>
+            <a href="design4.html" class="tpl-link">4. Polaroid Story</a>
+            <a href="design5.html" class="tpl-link">5. Dark Glass</a>
+        </div>
+    </nav>
+
+    <!-- Audio Player -->
+    <div class="editorial-audio" id="audioToggle">
+        <i class="fa-solid fa-circle-play" id="audioIcon"></i>
+        <span>Soundtrack</span>
+    </div>
+    <audio id="bgMusic" loop src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=wedding-romantic-piano-112199.mp3"></audio>
+
+    <!-- Hero Section -->
+    <header class="ed-hero">
+        <div class="ed-hero-left">
+            <div class="ed-issue">SPECIAL WEDDING ISSUE • NO. 25</div>
+            <h1 class="ed-title">
+                <span>DANIYAR</span>
+                <span class="ed-amp">&</span>
+                <span>ARUZHAN</span>
+            </h1>
+            <p class="ed-tagline">МЫ ЖЕНИМСЯ. ПРИГЛАШАЕМ ВАС РАЗДЕЛИТЬ НАШУ ИСТОРИЮ.</p>
+            
+            <div class="ed-meta-box">
+                <div class="meta-item">
+                    <span class="meta-lbl">ДАТА</span>
+                    <span class="meta-val">25.09.2026</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-lbl">ГОРОД</span>
+                    <span class="meta-val">Алматы</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-lbl">ЛОКАЦИЯ</span>
+                    <span class="meta-val">Grand Ballroom</span>
+                </div>
+            </div>
+
+            <a href="#rsvp" class="ed-cta-btn">Подтвердить присутствие <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <div class="ed-hero-right">
+            <div class="ed-photo-frame">
+                <img src="assets/couple.png" alt="Couple" class="ed-main-photo">
+                <div class="ed-photo-caption">«From this day forward, together in every chapter»</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Marquee Ticker -->
+    <div class="marquee-strip">
+        <div class="marquee-content">
+            <span>DANIYAR & ARUZHAN</span>
+            <span>•</span>
+            <span>25 SEPTEMBER 2026</span>
+            <span>•</span>
+            <span>ALMATY</span>
+            <span>•</span>
+            <span>SAVE THE DATE</span>
+            <span>•</span>
+            <span>DANIYAR & ARUZHAN</span>
+            <span>•</span>
+            <span>25 SEPTEMBER 2026</span>
+            <span>•</span>
+            <span>ALMATY</span>
+            <span>•</span>
+        </div>
+    </div>
+
+    <!-- Countdown Timer -->
+    <section class="ed-section ed-timer-sec">
+        <div class="ed-container">
+            <div class="timer-line-grid">
+                <div class="time-block">
+                    <span class="num" id="d2-days">00</span>
+                    <span class="lbl">DAYS</span>
+                </div>
+                <span class="divider">/</span>
+                <div class="time-block">
+                    <span class="num" id="d2-hours">00</span>
+                    <span class="lbl">HOURS</span>
+                </div>
+                <span class="divider">/</span>
+                <div class="time-block">
+                    <span class="num" id="d2-minutes">00</span>
+                    <span class="lbl">MINUTES</span>
+                </div>
+                <span class="divider">/</span>
+                <div class="time-block">
+                    <span class="num" id="d2-seconds">00</span>
+                    <span class="lbl">SECONDS</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Invitation Letter -->
+    <section class="ed-section">
+        <div class="ed-container-narrow">
+            <div class="ed-label-pill">INVITATION NOTE</div>
+            <h2 class="ed-sec-heading">Дорогие и близкие нашему сердцу гости!</h2>
+            <div class="ed-body-text">
+                <p>Один день может изменить всю жизнь. 25 сентября 2026 года мы делаем главный шаг навстречу нашему общему будущему.</p>
+                <p>Мы будем безмерно счастливы видеть вас рядом, разделить с вами тёплые объятия, смех, танцы и радость в этот незабываемый вечер.</p>
+            </div>
+            <div class="ed-signature">
+                <span class="sign-text">Данияр & Аружан</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Schedule Grid -->
+    <section class="ed-section ed-bg-light">
+        <div class="ed-container">
+            <div class="ed-label-pill">PROGRAM OF THE DAY</div>
+            <h2 class="ed-sec-heading">Тайминг события</h2>
+
+            <div class="ed-schedule-grid">
+                <div class="ed-sched-card">
+                    <span class="sched-step">01</span>
+                    <span class="sched-time">16:30</span>
+                    <h4>Welcome Drink</h4>
+                    <p>Сбор гостей, фотозона, живая музыка и прохладительные напитки.</p>
+                </div>
+                <div class="ed-sched-card">
+                    <span class="sched-step">02</span>
+                    <span class="sched-time">17:30</span>
+                    <h4>Беташар</h4>
+                    <p>Торжественная выездная церемония и знакомство с семьей.</p>
+                </div>
+                <div class="ed-sched-card">
+                    <span class="sched-step">03</span>
+                    <span class="sched-time">18:30</span>
+                    <h4>Банкет</h4>
+                    <p>Праздничный ужин, шоу-программа, поздравления и танцы.</p>
+                </div>
+                <div class="ed-sched-card">
+                    <span class="sched-step">04</span>
+                    <span class="sched-time">22:30</span>
+                    <h4>Свадебный торт</h4>
+                    <p>Кульминация вечера, первый танец и праздничный салют.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Card -->
+    <section class="ed-section">
+        <div class="ed-container">
+            <div class="ed-location-box">
+                <div class="ed-loc-content">
+                    <div class="ed-label-pill">VENUE LOCATION</div>
+                    <h3>Grand Ballroom Royal</h3>
+                    <p class="address"><i class="fa-solid fa-location-dot"></i> мкр. Самал-2, ул. Жолдасбекова, 15, Алматы</p>
+                    <p class="doors"><i class="fa-regular fa-clock"></i> Двери открыты с 16:30</p>
+                    
+                    <div class="ed-map-btns">
+                        <a href="https://2gis.kz/almaty/search/Grand%20Ballroom" target="_blank" class="btn-dark"><i class="fa-solid fa-diamond-turn-right"></i> 2GIS</a>
+                        <a href="https://yandex.ru/maps/?text=Grand+Ballroom+Almaty" target="_blank" class="btn-dark"><i class="fa-solid fa-map-location-dot"></i> Яндекс.Карты</a>
+                        <a href="https://maps.google.com/?q=Grand+Ballroom+Almaty" target="_blank" class="btn-dark"><i class="fa-brands fa-google"></i> Google Maps</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dress Code -->
+    <section class="ed-section ed-bg-light">
+        <div class="ed-container">
+            <div class="ed-label-pill">DRESS CODE</div>
+            <h2 class="ed-sec-heading">Цветовая эстетика</h2>
+            <p class="ed-sub">Будем рады, если ваши образы дополнят цветовую палитру торжества:</p>
+
+            <div class="ed-swatches-row">
+                <div class="swatch-item">
+                    <div class="circle" style="background:#1E1E1E;"></div>
+                    <span>Black Tie</span>
+                </div>
+                <div class="swatch-item">
+                    <div class="circle" style="background:#D8C4B6;"></div>
+                    <span>Cream Sand</span>
+                </div>
+                <div class="swatch-item">
+                    <div class="circle" style="background:#8D7B68;"></div>
+                    <span>Taupe Gold</span>
+                </div>
+                <div class="swatch-item">
+                    <div class="circle" style="background:#A3B18A;"></div>
+                    <span>Sage Olive</span>
+                </div>
+                <div class="swatch-item">
+                    <div class="circle" style="background:#2C3E35;"></div>
+                    <span>Forest Pine</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RSVP Section -->
+    <section id="rsvp" class="ed-section">
+        <div class="ed-container-narrow">
+            <div class="ed-label-pill">RSVP FORM</div>
+            <h2 class="ed-sec-heading">Подтверждение присутствия</h2>
+            <p class="ed-sub">Пожалуйста, дайте ответ до 10 сентября 2026 г.</p>
+
+            <form id="edRsvpForm" class="ed-form">
+                <div class="ed-form-field">
+                    <label>Ваше Имя и Фамилия *</label>
+                    <input type="text" id="edName" required placeholder="Арман Сарсенов">
+                </div>
+
+                <div class="ed-form-field">
+                    <label>Ваше присутствие *</label>
+                    <div class="ed-radio-row">
+                        <label class="ed-radio">
+                            <input type="radio" name="edAtt" value="yes" checked>
+                            <span>Буду на празднике</span>
+                        </label>
+                        <label class="ed-radio">
+                            <input type="radio" name="edAtt" value="no">
+                            <span>Не смогу прийти</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="ed-form-field" id="edPlusOneField">
+                    <label>Имя вашего спутника/спутницы (+1)</label>
+                    <input type="text" id="edPlusOne" placeholder="Если будете не одни">
+                </div>
+
+                <div class="ed-form-field">
+                    <label>Пожелания или предпочтения по меню</label>
+                    <textarea id="edNotes" rows="3" placeholder="Любые пожелания или особенности..."></textarea>
+                </div>
+
+                <button type="submit" class="ed-submit-btn">Отправить ответ <i class="fa-solid fa-paper-plane"></i></button>
+            </form>
+
+            <div id="edSuccess" class="ed-success hidden">
+                <i class="fa-solid fa-circle-check"></i>
+                <h3>Ответ успешно отправлен!</h3>
+                <p>Спасибо! С нетерпением ждем нашей встречи на свадьбе.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="ed-footer">
+        <p class="ed-f-title">DANIYAR & ARUZHAN</p>
+        <p class="ed-f-date">25.09.2026 • ALMATY</p>
+    </footer>
+
+    <script>
+        const target = new Date("September 25, 2026 16:30:00").getTime();
+        function updateTimer() {
+            const now = new Date().getTime();
+            const diff = target - now;
+            if (diff > 0) {
+                document.getElementById("d2-days").innerText = Math.floor(diff / (1000 * 60 * 60 * 24));
+                document.getElementById("d2-hours").innerText = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                document.getElementById("d2-minutes").innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                document.getElementById("d2-seconds").innerText = Math.floor((diff % (1000 * 60)) / 1000);
+            }
+        }
+        setInterval(updateTimer, 1000);
+        updateTimer();
+
+        const audio = document.getElementById("bgMusic");
+        const audioToggle = document.getElementById("audioToggle");
+        const audioIcon = document.getElementById("audioIcon");
+        let playing = false;
+        audioToggle.addEventListener("click", () => {
+            if (playing) {
+                audio.pause();
+                audioIcon.className = "fa-solid fa-circle-play";
+                playing = false;
+            } else {
+                audio.play().then(() => {
+                    audioIcon.className = "fa-solid fa-circle-pause";
+                    playing = true;
+                }).catch(e => console.log(e));
+            }
+        });
+
+        const rsvpForm = document.getElementById("edRsvpForm");
+        const rsvpSuccess = document.getElementById("edSuccess");
+        const plusOneField = document.getElementById("edPlusOneField");
+        document.querySelectorAll("input[name="edAtt"]").forEach(r => {
+            r.addEventListener("change", e => {
+                plusOneField.style.display = e.target.value === "no" ? "none" : "block";
+            });
+        });
+
+        rsvpForm.addEventListener("submit", e => {
+            e.preventDefault();
+            rsvpForm.classList.add("hidden");
+            rsvpSuccess.classList.remove("hidden");
+            confetti({ particleCount: 70, spread: 60, origin: { y: 0.6 } });
+        });
+    </script>
+</body>
+</html>

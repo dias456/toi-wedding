@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Данияр & Аружан — Үйлену тойына шақыру ⚜️</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Forum&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <link rel="stylesheet" href="design3.css">
+</head>
+<body>
+
+    <!-- Nav Switcher -->
+    <nav class="tpl-nav">
+        <span class="tpl-nav-title"><i class="fa-solid fa-layer-group"></i> Шаблоны дизайна:</span>
+        <div class="tpl-nav-links">
+            <a href="index.html" class="tpl-link">1. Классика</a>
+            <a href="design2.html" class="tpl-link">2. Editorial Журнал</a>
+            <a href="design3.html" class="tpl-link active">3. Этно-Той ⚜️</a>
+            <a href="design4.html" class="tpl-link">4. Polaroid Story</a>
+            <a href="design5.html" class="tpl-link">5. Dark Glass</a>
+        </div>
+    </nav>
+
+    <!-- Music -->
+    <div class="ethno-audio" id="audioToggle">
+        <i class="fa-solid fa-music"></i>
+        <span>Әуенді қосу</span>
+    </div>
+    <audio id="bgMusic" loop src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=wedding-romantic-piano-112199.mp3"></audio>
+
+    <!-- Hero Card with Kazakh Golden Ornament Frame -->
+    <header class="ethno-hero">
+        <div class="ethno-frame-box">
+            <div class="ornament-top">⚜️ ❖ ⚜️</div>
+            <p class="ethno-bilingual-badge">ҮЙЛЕНУ ТОЙҒА ШАҚЫРУ • ПРИГЛАШЕНИЕ НА СВАДЬБУ</p>
+            
+            <div class="ethno-monogram">
+                <span>D</span> ❖ <span>A</span>
+            </div>
+
+            <h1 class="ethno-title">Данияр <br><span class="and-kz">мен</span><br> Аружан</h1>
+            
+            <div class="gold-line-ornament">
+                <span class="line"></span>
+                <span class="star">✦ ⚜️ ✦</span>
+                <span class="line"></span>
+            </div>
+
+            <p class="ethno-date">25 ҚЫРКҮЙЕК 2026 ЖЫЛ</p>
+            <p class="ethno-city">Алматы қаласы</p>
+
+            <a href="#rsvp" class="ethno-btn">Тойға қатысуды растау ⚜️</a>
+        </div>
+    </header>
+
+    <!-- Timer Section with Gold Borders -->
+    <section class="ethno-sec ethno-timer-bg">
+        <div class="ethno-container text-center">
+            <h3 class="ethno-subhead">Той салтанатына дейін қалды:</h3>
+            <div class="ethno-timer-grid">
+                <div class="ethno-timer-card">
+                    <span class="val" id="d3-days">00</span>
+                    <span class="lbl">күн / дней</span>
+                </div>
+                <div class="ethno-timer-card">
+                    <span class="val" id="d3-hours">00</span>
+                    <span class="lbl">сағат / часов</span>
+                </div>
+                <div class="ethno-timer-card">
+                    <span class="val" id="d3-minutes">00</span>
+                    <span class="lbl">минут</span>
+                </div>
+                <div class="ethno-timer-card">
+                    <span class="val" id="d3-seconds">00</span>
+                    <span class="lbl">секунд</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Invitation Letter (Bilingual Kazakh/Russian) -->
+    <section class="ethno-sec">
+        <div class="ethno-container-narrow">
+            <div class="carpet-card">
+                <div class="corner-ornament c-tl">⚜️</div>
+                <div class="corner-ornament c-tr">⚜️</div>
+                <div class="corner-ornament c-bl">⚜️</div>
+                <div class="corner-ornament c-br">⚜️</div>
+
+                <h2 class="ethno-inv-title">Құрметті ағайын-туыс, бауырлар, құда-жекжат және қадірлі достар!</h2>
+                
+                <p class="ethno-p">
+                    Сіздерді ұлымыз <strong>Данияр</strong> мен келініміз <strong>Аружанның</strong> 
+                    шаңырақ көтеріп, отау құру салтанатына арналған ақ тойының қадірлі қонағы болуға шақырамыз!
+                </p>
+                <div class="bata-quote">
+                    «Екі жас бақытты болсын, көсегесі көгерсін, өмірлері мәнді де сәнді өтсін!»
+                </div>
+                <p class="ethno-p-ru">
+                    Разделите с нами светлую радость создания новой семьи. Ваш визит и добрые пожелания станут главным украшением нашего дастархана!
+                </p>
+
+                <div class="toi-hosts">
+                    <span class="hosts-label">Той иелері:</span>
+                    <h4>Ата-аналары</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kazakh Timing / Program -->
+    <section class="ethno-sec ethno-bg-velvet">
+        <div class="ethno-container">
+            <h2 class="ethno-sec-title">Той бағдарламасы</h2>
+            <p class="ethno-sec-subtitle">Программа торжественного вечера</p>
+
+            <div class="ethno-timing-list">
+                <div class="ethno-timing-box">
+                    <div class="time-badge">16:30</div>
+                    <div class="desc-box">
+                        <h4>Қонақтардың жиналуы</h4>
+                        <p>Сбор гостей, фуршет және естелік суретке түсу.</p>
+                    </div>
+                </div>
+
+                <div class="ethno-timing-box">
+                    <div class="time-badge">17:30</div>
+                    <div class="desc-box">
+                        <h4>Беташар рәсімі</h4>
+                        <p>Келіннің бетін ашу салтанаты және ақ бата беру.</p>
+                    </div>
+                </div>
+
+                <div class="ethno-timing-box">
+                    <div class="time-badge">18:30</div>
+                    <div class="desc-box">
+                        <h4>Той дастарханы & Концерт</h4>
+                        <p>Торжественный банкет, ән-шашу, ойындар және құттықтаулар.</p>
+                    </div>
+                </div>
+
+                <div class="ethno-timing-box">
+                    <div class="time-badge">22:30</div>
+                    <div class="desc-box">
+                        <h4>Той торты & Тәтті шай</h4>
+                        <p>Свадебный торт, жастардың вальсі және отшашу.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Venue / Location Card -->
+    <section class="ethno-sec">
+        <div class="ethno-container-narrow">
+            <div class="ethno-venue-card">
+                <div class="venue-icon">🏰</div>
+                <h3>«Grand Ballroom Royal» мейрамханасы</h3>
+                <p class="venue-addr"><i class="fa-solid fa-location-dot"></i> Алматы қ., Самал-2 ықшамауданы, Жолдасбеков көшесі, 15</p>
+                <p class="venue-timing"><i class="fa-regular fa-clock"></i> Басталуы: 17:00</p>
+                
+                <div class="ethno-nav-btns">
+                    <a href="https://2gis.kz/almaty/search/Grand%20Ballroom" target="_blank" class="ethno-map-btn"><i class="fa-solid fa-map-pin"></i> 2GIS бағдары</a>
+                    <a href="https://yandex.ru/maps/?text=Grand+Ballroom+Almaty" target="_blank" class="ethno-map-btn"><i class="fa-solid fa-location-arrow"></i> Яндекс.Карты</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RSVP Section -->
+    <section id="rsvp" class="ethno-sec ethno-bg-velvet">
+        <div class="ethno-container-narrow">
+            <h2 class="ethno-sec-title">Тойға келуіңізді растаңыз</h2>
+            <p class="ethno-sec-subtitle">Анкета гостя (RSVP)</p>
+
+            <form id="d3RsvpForm" class="ethno-form">
+                <div class="ethno-field">
+                    <label>Есіміңіз бен тегіңіз (ФИО) *</label>
+                    <input type="text" id="d3Name" required placeholder="Мысалы: Бауыржан Сейітов">
+                </div>
+
+                <div class="ethno-field">
+                    <label>Тойға келесіз бе? *</label>
+                    <div class="ethno-radio-grid">
+                        <label class="e-radio">
+                            <input type="radio" name="d3Att" value="yes" checked>
+                            <span>Әрине, қуанышпен келемін! ⚜️</span>
+                        </label>
+                        <label class="e-radio">
+                            <input type="radio" name="d3Att" value="no">
+                            <span>Өкінішке орай, келе алмаймын</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="ethno-field" id="d3PlusOneBox">
+                    <label>Жұбыңыздың / Спутнигіңіздің есімі (+1)</label>
+                    <input type="text" id="d3PlusOne" placeholder="Сүйікті жарыңыз немесе жұбыңыз">
+                </div>
+
+                <div class="ethno-field">
+                    <label>Жас жұбайларға ақ тілектеріңіз:</label>
+                    <textarea id="d3Notes" rows="3" placeholder="Ізгі тілегіңізді қалдырыңыз..."></textarea>
+                </div>
+
+                <button type="submit" class="ethno-submit">Жауапты жіберу ✦</button>
+            </form>
+
+            <div id="d3Success" class="ethno-success hidden">
+                <div class="success-ornament">⚜️</div>
+                <h3>Рақмет! Жауабыңыз қабылданды!</h3>
+                <p>Сізді той төрінде асыға күтеміз!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="ethno-footer">
+        <p class="ethno-f-ornament">❖ ⚜️ ❖</p>
+        <p class="ethno-f-names">Данияр & Аружан</p>
+        <p class="ethno-f-date">25.09.2026 • АЛМАТЫ</p>
+    </footer>
+
+    <script>
+        const target = new Date("September 25, 2026 16:30:00").getTime();
+        function updateTimer() {
+            const now = new Date().getTime();
+            const diff = target - now;
+            if (diff > 0) {
+                document.getElementById("d3-days").innerText = Math.floor(diff / (1000 * 60 * 60 * 24));
+                document.getElementById("d3-hours").innerText = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                document.getElementById("d3-minutes").innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                document.getElementById("d3-seconds").innerText = Math.floor((diff % (1000 * 60)) / 1000);
+            }
+        }
+        setInterval(updateTimer, 1000);
+        updateTimer();
+
+        const audio = document.getElementById("bgMusic");
+        const audioToggle = document.getElementById("audioToggle");
+        let playing = false;
+        audioToggle.addEventListener("click", () => {
+            if (playing) {
+                audio.pause();
+                playing = false;
+            } else {
+                audio.play().then(() => { playing = true; }).catch(e => console.log(e));
+            }
+        });
+
+        const rsvpForm = document.getElementById("d3RsvpForm");
+        const rsvpSuccess = document.getElementById("d3Success");
+        const plusOneBox = document.getElementById("d3PlusOneBox");
+        document.querySelectorAll("input[name="d3Att"]").forEach(r => {
+            r.addEventListener("change", e => {
+                plusOneBox.style.display = e.target.value === "no" ? "none" : "block";
+            });
+        });
+
+        rsvpForm.addEventListener("submit", e => {
+            e.preventDefault();
+            rsvpForm.classList.add("hidden");
+            rsvpSuccess.classList.remove("hidden");
+            confetti({ particleCount: 80, spread: 70, origin: { y: 0.6 } });
+        });
+    </script>
+</body>
+</html>

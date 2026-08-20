@@ -1,0 +1,270 @@
+
+:root {
+    --ethno-gold: #D4AF37;
+    --ethno-gold-light: #F9E79F;
+    --ethno-burgundy: #4A0E17;
+    --ethno-dark: #2B050B;
+    --ethno-bg: #FAF7F2;
+    --font-heading: "Forum", serif;
+    --font-deco: "Cinzel Decorative", serif;
+    --font-text: "Montserrat", sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+    font-family: var(--font-text);
+    background-color: var(--ethno-bg);
+    color: #2D2424;
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+/* Nav */
+.tpl-nav {
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+    background: #111;
+    color: #fff;
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    flex-wrap: wrap;
+}
+.tpl-nav-title { font-size: 0.8rem; font-weight: 700; color: var(--ethno-gold); }
+.tpl-nav-links { display: flex; gap: 8px; flex-wrap: wrap; }
+.tpl-link {
+    color: #ccc;
+    background: rgba(255,255,255,0.1);
+    text-decoration: none;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 5px 12px;
+    border-radius: 4px;
+}
+.tpl-link:hover { color: #fff; background: rgba(255,255,255,0.25); }
+.tpl-link.active { background: var(--ethno-gold); color: #111; font-weight: 700; }
+
+.ethno-audio {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background: var(--ethno-burgundy);
+    color: var(--ethno-gold);
+    border: 1px solid var(--ethno-gold);
+    padding: 10px 18px;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 600;
+    z-index: 999;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+}
+
+/* Hero */
+.ethno-hero {
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle, #3D0C13 0%, #1F0307 100%);
+    color: #fff;
+    padding: 50px 20px;
+    text-align: center;
+    position: relative;
+}
+.ethno-frame-box {
+    max-width: 680px;
+    width: 100%;
+    border: 2px solid var(--ethno-gold);
+    padding: 50px 30px;
+    background: rgba(43, 5, 11, 0.7);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 0 35px rgba(212, 175, 55, 0.2);
+    position: relative;
+}
+.ornament-top { color: var(--ethno-gold); font-size: 1.5rem; margin-bottom: 12px; }
+.ethno-bilingual-badge { font-size: 0.8rem; letter-spacing: 3px; color: var(--ethno-gold); font-weight: 600; margin-bottom: 20px; }
+.ethno-monogram { font-family: var(--font-deco); font-size: 2.2rem; color: var(--ethno-gold-light); margin-bottom: 15px; }
+.ethno-title { font-family: var(--font-heading); font-size: 4.2rem; line-height: 1.1; color: #fff; font-weight: 400; margin-bottom: 15px; }
+.and-kz { font-size: 2rem; color: var(--ethno-gold); font-style: italic; }
+
+.gold-line-ornament { display: flex; align-items: center; justify-content: center; gap: 15px; margin: 20px 0; }
+.gold-line-ornament .line { width: 60px; height: 1px; background: var(--ethno-gold); }
+.gold-line-ornament .star { color: var(--ethno-gold); }
+
+.ethno-date { font-size: 1.3rem; letter-spacing: 3px; font-weight: 600; color: var(--ethno-gold-light); margin-bottom: 6px; }
+.ethno-city { font-size: 1rem; color: rgba(255,255,255,0.8); margin-bottom: 30px; }
+
+.ethno-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, #D4AF37 0%, #AA771C 100%);
+    color: #1a0508;
+    font-weight: 700;
+    text-decoration: none;
+    padding: 15px 36px;
+    border-radius: 30px;
+    font-size: 0.95rem;
+    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.35);
+}
+
+/* Sections */
+.ethno-sec { padding: 80px 20px; }
+.ethno-bg-velvet { background: #2B050B; color: #fff; }
+.ethno-timer-bg { background: #F2EBE0; border-top: 2px solid var(--ethno-gold); border-bottom: 2px solid var(--ethno-gold); }
+.ethno-container { max-width: 960px; margin: 0 auto; }
+.ethno-container-narrow { max-width: 720px; margin: 0 auto; text-align: center; }
+
+.ethno-subhead { font-family: var(--font-heading); font-size: 1.8rem; color: var(--ethno-burgundy); margin-bottom: 25px; }
+.ethno-sec-title { font-family: var(--font-heading); font-size: 2.8rem; color: var(--ethno-gold); margin-bottom: 8px; }
+.ethno-sec-subtitle { font-size: 1rem; color: #bbb; margin-bottom: 40px; }
+
+/* Timer */
+.ethno-timer-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; max-width: 600px; margin: 0 auto; }
+.ethno-timer-card {
+    background: #fff;
+    border: 1px solid var(--ethno-gold);
+    padding: 20px 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+.ethno-timer-card .val { font-family: var(--font-heading); font-size: 2.8rem; color: var(--ethno-burgundy); font-weight: 700; display: block; line-height: 1; margin-bottom: 4px; }
+.ethno-timer-card .lbl { font-size: 0.75rem; color: #777; font-weight: 600; text-transform: uppercase; }
+
+/* Carpet Card */
+.carpet-card {
+    background: #fff;
+    border: 3px double var(--ethno-gold);
+    padding: 55px 40px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+}
+.corner-ornament { position: absolute; color: var(--ethno-gold); font-size: 1.2rem; }
+.c-tl { top: 12px; left: 12px; }
+.c-tr { top: 12px; right: 12px; }
+.c-bl { bottom: 12px; left: 12px; }
+.c-br { bottom: 12px; right: 12px; }
+
+.ethno-inv-title { font-family: var(--font-heading); font-size: 2rem; color: var(--ethno-burgundy); margin-bottom: 20px; line-height: 1.3; }
+.ethno-p { font-size: 1.15rem; color: #333; margin-bottom: 20px; }
+.bata-quote {
+    background: #FAF3E6;
+    border-left: 3px solid var(--ethno-gold);
+    padding: 15px 20px;
+    font-style: italic;
+    color: var(--ethno-burgundy);
+    margin: 25px 0;
+    font-size: 1.1rem;
+}
+.ethno-p-ru { font-size: 1rem; color: #666; margin-bottom: 30px; }
+.toi-hosts .hosts-label { font-size: 0.85rem; color: #888; display: block; }
+.toi-hosts h4 { font-family: var(--font-heading); font-size: 1.6rem; color: var(--ethno-burgundy); }
+
+/* Timing */
+.ethno-timing-list { max-width: 680px; margin: 0 auto; }
+.ethno-timing-box {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    padding: 20px 25px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    text-align: left;
+}
+.time-badge {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    color: var(--ethno-gold);
+    font-weight: 700;
+    min-width: 90px;
+}
+.desc-box h4 { font-size: 1.2rem; color: #fff; margin-bottom: 4px; }
+.desc-box p { font-size: 0.9rem; color: #ccc; }
+
+/* Venue */
+.ethno-venue-card {
+    background: #fff;
+    border: 2px solid var(--ethno-gold);
+    padding: 45px 30px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+}
+.venue-icon { font-size: 3rem; margin-bottom: 12px; }
+.ethno-venue-card h3 { font-family: var(--font-heading); font-size: 2.2rem; color: var(--ethno-burgundy); margin-bottom: 10px; }
+.venue-addr { font-size: 1.05rem; color: #555; margin-bottom: 8px; }
+.venue-timing { font-size: 1rem; font-weight: 600; color: #222; margin-bottom: 25px; }
+.ethno-nav-btns { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
+.ethno-map-btn {
+    background: var(--ethno-burgundy);
+    color: var(--ethno-gold);
+    text-decoration: none;
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border: 1px solid var(--ethno-gold);
+}
+
+/* RSVP */
+.ethno-form {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    padding: 40px 30px;
+    text-align: left;
+}
+.ethno-field { margin-bottom: 20px; }
+.ethno-field label { display: block; font-size: 0.9rem; color: var(--ethno-gold-light); margin-bottom: 8px; font-weight: 600; }
+.ethno-field input, .ethno-field textarea {
+    width: 100%;
+    padding: 14px;
+    background: #1a0508;
+    border: 1px solid rgba(212, 175, 55, 0.5);
+    color: #fff;
+    font-family: inherit;
+    font-size: 1rem;
+    border-radius: 4px;
+}
+.ethno-radio-grid { display: flex; flex-direction: column; gap: 10px; }
+.e-radio { display: flex; align-items: center; gap: 10px; color: #fff; font-size: 0.95rem; cursor: pointer; }
+.ethno-submit {
+    width: 100%;
+    background: linear-gradient(135deg, #D4AF37 0%, #AA771C 100%);
+    color: #1a0508;
+    padding: 16px;
+    font-size: 1.05rem;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    border-radius: 30px;
+    margin-top: 10px;
+}
+.ethno-success {
+    background: rgba(255,255,255,0.1);
+    border: 2px solid var(--ethno-gold);
+    padding: 40px;
+    margin-top: 25px;
+}
+.success-ornament { font-size: 2.5rem; color: var(--ethno-gold); margin-bottom: 10px; }
+
+/* Footer */
+.ethno-footer { background: #150204; color: #fff; padding: 40px 20px; text-align: center; border-top: 1px solid var(--ethno-gold); }
+.ethno-f-ornament { color: var(--ethno-gold); font-size: 1.3rem; margin-bottom: 6px; }
+.ethno-f-names { font-family: var(--font-heading); font-size: 2rem; color: var(--ethno-gold); }
+.ethno-f-date { font-size: 0.8rem; color: #888; letter-spacing: 2px; }
+
+.hidden { display: none !important; }
+.text-center { text-align: center; }
+
+@media (max-width: 768px) {
+    .ethno-title { font-size: 3rem; }
+    .ethno-timer-grid { grid-template-columns: repeat(2, 1fr); }
+    .carpet-card { padding: 35px 20px; }
+    .ethno-timing-box { flex-direction: column; text-align: center; gap: 8px; }
+}

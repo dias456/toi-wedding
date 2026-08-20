@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Данияр & Аружан — Our Love Story & Wedding 📸</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Comfortaa:wght@400;600;700&family=Kalam:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <link rel="stylesheet" href="design4.css">
+</head>
+<body>
+
+    <!-- Nav Switcher -->
+    <nav class="tpl-nav">
+        <span class="tpl-nav-title"><i class="fa-solid fa-layer-group"></i> Шаблоны дизайна:</span>
+        <div class="tpl-nav-links">
+            <a href="index.html" class="tpl-link">1. Классика</a>
+            <a href="design2.html" class="tpl-link">2. Editorial Журнал</a>
+            <a href="design3.html" class="tpl-link">3. Этно-Той ⚜️</a>
+            <a href="design4.html" class="tpl-link active">4. Polaroid Story 📸</a>
+            <a href="design5.html" class="tpl-link">5. Dark Glass</a>
+        </div>
+    </nav>
+
+    <!-- Music -->
+    <div class="polaroid-audio" id="audioToggle">
+        <i class="fa-solid fa-compact-disc"></i>
+        <span>Наш трек</span>
+    </div>
+    <audio id="bgMusic" loop src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=wedding-romantic-piano-112199.mp3"></audio>
+
+    <!-- Hero Section: Polaroid Collage -->
+    <header class="pol-hero">
+        <div class="washi-tape t-1"></div>
+        <div class="washi-tape t-2"></div>
+        
+        <div class="pol-container text-center">
+            <span class="pol-badge">✨ OUR WEDDING INVITATION ✨</span>
+            <h1 class="pol-title">Данияр <span class="pol-heart">♥</span> Аружан</h1>
+            <p class="pol-subtitle">«История любви, которая становится семьей»</p>
+
+            <div class="polaroid-main-card">
+                <div class="tape-strip"></div>
+                <div class="pol-photo-box">
+                    <img src="assets/couple.png" alt="Couple">
+                </div>
+                <div class="pol-caption">
+                    <span>25 Сентября 2026 • Алматы</span>
+                    <i class="fa-solid fa-heart red-heart"></i>
+                </div>
+            </div>
+
+            <div class="pol-hero-actions">
+                <a href="#rsvp" class="pol-btn">Заполнить анкету гостя 💌</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Timer Section: Sticky Note Style -->
+    <section class="pol-sec">
+        <div class="pol-container">
+            <div class="sticky-note-timer">
+                <div class="pin-icon">📌</div>
+                <h3 class="sticky-title">До нашего счастливого дня:</h3>
+                <div class="sticky-grid">
+                    <div class="sticky-box">
+                        <span class="val" id="d4-days">00</span>
+                        <span class="lbl">дней</span>
+                    </div>
+                    <div class="sticky-box">
+                        <span class="val" id="d4-hours">00</span>
+                        <span class="lbl">часов</span>
+                    </div>
+                    <div class="sticky-box">
+                        <span class="val" id="d4-minutes">00</span>
+                        <span class="lbl">минут</span>
+                    </div>
+                    <div class="sticky-box">
+                        <span class="val" id="d4-seconds">00</span>
+                        <span class="lbl">секунд</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Love Story Timeline Chapters -->
+    <section class="pol-sec pol-bg-dots">
+        <div class="pol-container">
+            <h2 class="pol-sec-heading text-center">Как начиналась наша сказка 📖</h2>
+
+            <div class="story-scrapbook">
+                <div class="scrap-card sc-1">
+                    <div class="stamp-badge">2023</div>
+                    <h4>Первая встреча</h4>
+                    <p>Случайный разговор в уютной кофейне, который перерос в бесконечные ночные разговоры обо всем на свете.</p>
+                </div>
+
+                <div class="scrap-card sc-2">
+                    <div class="stamp-badge">2024</div>
+                    <h4>Первое совместное путешествие</h4>
+                    <p>Горы, рассветы и ощущение, что рядом человек, с которым хочется пройти весь жизненный путь.</p>
+                </div>
+
+                <div class="scrap-card sc-3">
+                    <div class="stamp-badge">2025</div>
+                    <h4>Заветное «ДА!» 💍</h4>
+                    <p>Тот самый вечер, дрожащий голос, кольцо и самое счастливое согласие быть вместе навсегда!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timing: Stamp Cards -->
+    <section class="pol-sec">
+        <div class="pol-container">
+            <h2 class="pol-sec-heading text-center">План нашего праздника ⏰</h2>
+
+            <div class="timing-postcards">
+                <div class="post-card">
+                    <span class="post-time">16:30</span>
+                    <h4>Встреча гостей</h4>
+                    <p>Welcome drink, фото на полароид и тёплые объятия.</p>
+                </div>
+                <div class="post-card">
+                    <span class="post-time">17:30</span>
+                    <h4>Беташар & Церемония</h4>
+                    <p>Торжественный выход и благословение родных.</p>
+                </div>
+                <div class="post-card">
+                    <span class="post-time">18:30</span>
+                    <h4>Праздничный банкет</h4>
+                    <p>Шоу-программа, тосты, сюрпризы и зажигательные танцы.</p>
+                </div>
+                <div class="post-card">
+                    <span class="post-time">22:30</span>
+                    <h4>Сладкий финал</h4>
+                    <p>Свадебный торт, танец молодоженов и бенгальские огни.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Postcard -->
+    <section class="pol-sec pol-bg-dots">
+        <div class="pol-container-narrow">
+            <div class="postcard-location">
+                <div class="stamp-post">STAMP • 2026</div>
+                <h3>Куда держать курс:</h3>
+                <h4>Ресторан «Grand Ballroom Royal»</h4>
+                <p class="addr">мкр. Самал-2, ул. Жолдасбекова, 15, г. Алматы</p>
+                
+                <div class="pol-map-links">
+                    <a href="https://2gis.kz/almaty/search/Grand%20Ballroom" target="_blank" class="pol-map-btn">Открыть 2GIS 🧭</a>
+                    <a href="https://yandex.ru/maps/?text=Grand+Ballroom+Almaty" target="_blank" class="pol-map-btn">Яндекс.Карты 📍</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RSVP Section: Postbox Form -->
+    <section id="rsvp" class="pol-sec">
+        <div class="pol-container-narrow">
+            <div class="rsvp-envelope-card">
+                <h2 class="pol-sec-heading">Почтовый ящик гостя 📬</h2>
+                <p class="pol-sub">Будем рады вашему ответу до 10 сентября 2026 г.</p>
+
+                <form id="d4RsvpForm" class="pol-form">
+                    <div class="pol-group">
+                        <label>Как вас зовут? (Имя и Фамилия) *</label>
+                        <input type="text" id="d4Name" required placeholder="Например: Арман и Динара">
+                    </div>
+
+                    <div class="pol-group">
+                        <label>Сможете ли вы прийти? *</label>
+                        <div class="pol-radios">
+                            <label class="p-radio">
+                                <input type="radio" name="d4Att" value="yes" checked>
+                                <span>Да, обязательно будем! 🎉</span>
+                            </label>
+                            <label class="p-radio">
+                                <input type="radio" name="d4Att" value="no">
+                                <span>К сожалению, не сможем</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="pol-group" id="d4PlusOneBox">
+                        <label>Имя вашего спутника (+1)</label>
+                        <input type="text" id="d4PlusOne" placeholder="С кем вы придете">
+                    </div>
+
+                    <div class="pol-group">
+                        <label>Несколько тёплых слов или пожеланий:</label>
+                        <textarea id="d4Notes" rows="3" placeholder="Напишите пару строк молодоженам..."></textarea>
+                    </div>
+
+                    <button type="submit" class="pol-submit-btn">Опустить письмо в ящик 📮</button>
+                </form>
+
+                <div id="d4Success" class="pol-success hidden">
+                    <div class="heart-anim">💌</div>
+                    <h3>Письмо доставлено!</h3>
+                    <p>Спасибо! Ждем вас на нашем празднике!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="pol-footer">
+        <p class="f-hand">Made with love for our best day</p>
+        <p class="f-sub">Данияр & Аружан • 2026</p>
+    </footer>
+
+    <script>
+        const target = new Date("September 25, 2026 16:30:00").getTime();
+        function updateTimer() {
+            const now = new Date().getTime();
+            const diff = target - now;
+            if (diff > 0) {
+                document.getElementById("d4-days").innerText = Math.floor(diff / (1000 * 60 * 60 * 24));
+                document.getElementById("d4-hours").innerText = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                document.getElementById("d4-minutes").innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                document.getElementById("d4-seconds").innerText = Math.floor((diff % (1000 * 60)) / 1000);
+            }
+        }
+        setInterval(updateTimer, 1000);
+        updateTimer();
+
+        const audio = document.getElementById("bgMusic");
+        const audioToggle = document.getElementById("audioToggle");
+        let playing = false;
+        audioToggle.addEventListener("click", () => {
+            if (playing) {
+                audio.pause();
+                playing = false;
+            } else {
+                audio.play().then(() => { playing = true; }).catch(e => console.log(e));
+            }
+        });
+
+        const rsvpForm = document.getElementById("d4RsvpForm");
+        const rsvpSuccess = document.getElementById("d4Success");
+        const plusOneBox = document.getElementById("d4PlusOneBox");
+        document.querySelectorAll("input[name="d4Att"]").forEach(r => {
+            r.addEventListener("change", e => {
+                plusOneBox.style.display = e.target.value === "no" ? "none" : "block";
+            });
+        });
+
+        rsvpForm.addEventListener("submit", e => {
+            e.preventDefault();
+            rsvpForm.classList.add("hidden");
+            rsvpSuccess.classList.remove("hidden");
+            confetti({ particleCount: 75, spread: 65, origin: { y: 0.6 } });
+        });
+    </script>
+</body>
+</html>
