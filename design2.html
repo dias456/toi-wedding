@@ -21,10 +21,8 @@
             color: var(--text-color);
             line-height: 1.8;
             overflow-x: hidden;
-            letter-spacing: 0.5px;
         }
 
-        /* Custom Navigation */
         .tpl-nav { position: sticky; top: 0; z-index: 9999; background: rgba(26, 26, 26, 0.95); backdrop-filter: blur(10px); color: #fff; padding: 12px 16px; display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap; border-bottom: 1px solid rgba(255,255,255,0.05); }
         .tpl-nav-title { font-size: 0.8rem; font-weight: 500; color: var(--accent-color); letter-spacing: 2px; text-transform: uppercase; }
         .tpl-nav-links { display: flex; gap: 8px; flex-wrap: wrap; }
@@ -33,284 +31,77 @@
 
         .audio-control { position: fixed; bottom: 24px; right: 24px; z-index: 1000; background: #fff; border: 1px solid var(--border-color); padding: 12px 20px; border-radius: 30px; cursor: pointer; display: flex; align-items: center; gap: 8px; font-size: 0.75rem; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 500; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
 
-        /* Hero */
-        .hero {
-            min-height: 95vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 80px 20px;
-            position: relative;
-            border-bottom: 1px solid var(--border-color);
-        }
-        .hero-border {
-            position: absolute;
-            inset: 30px;
-            border: 1px solid var(--border-color);
-            pointer-events: none;
-        }
-        .hero-content {
-            text-align: center;
-            max-width: 800px;
-            z-index: 2;
-        }
-        .hero-label {
-            font-size: 0.75rem;
-            letter-spacing: 6px;
-            text-transform: uppercase;
-            color: var(--accent-color);
-            margin-bottom: 30px;
-            display: block;
-        }
-        .hero-title {
-            font-family: "Cormorant Garamond", serif;
-            font-size: 5.5rem;
-            font-weight: 300;
-            line-height: 1.1;
-            margin-bottom: 30px;
-        }
-        .hero-title span {
-            font-style: italic;
-            font-weight: 300;
-        }
-        .hero-date {
-            font-family: "Cormorant Garamond", serif;
-            font-size: 1.8rem;
-            font-style: italic;
-            letter-spacing: 2px;
-            margin-bottom: 10px;
-        }
-        .hero-venue {
-            font-size: 0.75rem;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            opacity: 0.7;
-        }
+        .hero { min-height: 95vh; display: flex; align-items: center; justify-content: center; padding: 80px 20px; position: relative; border-bottom: 1px solid var(--border-color); }
+        .hero-border { position: absolute; inset: 30px; border: 1px solid var(--border-color); pointer-events: none; }
+        .hero-content { text-align: center; max-width: 800px; z-index: 2; }
+        .hero-label { font-size: 0.75rem; letter-spacing: 6px; text-transform: uppercase; color: var(--accent-color); margin-bottom: 30px; display: block; }
+        .hero-title { font-family: "Cormorant Garamond", serif; font-size: 5.5rem; font-weight: 300; line-height: 1.1; margin-bottom: 30px; }
+        .hero-title span { font-style: italic; font-weight: 300; }
+        .hero-date { font-family: "Cormorant Garamond", serif; font-size: 1.8rem; font-style: italic; letter-spacing: 2px; margin-bottom: 10px; }
+        .hero-venue { font-size: 0.75rem; letter-spacing: 4px; text-transform: uppercase; opacity: 0.7; }
 
-        /* Elegant Sections */
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 0 30px;
-        }
-        .section {
-            padding: 100px 0;
-        }
-        .section-header {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-        .section-title {
-            font-family: "Cormorant Garamond", serif;
-            font-size: 3rem;
-            font-weight: 300;
-            font-style: italic;
-        }
-        .section-label {
-            font-size: 0.7rem;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            color: var(--accent-color);
-            margin-bottom: 10px;
-            display: block;
-        }
+        .container { max-width: 900px; margin: 0 auto; padding: 0 30px; }
+        .section { padding: 100px 0; }
+        .section-header { text-align: center; margin-bottom: 60px; }
+        .section-title { font-family: "Cormorant Garamond", serif; font-size: 3rem; font-weight: 300; font-style: italic; }
+        .section-label { font-size: 0.7rem; letter-spacing: 4px; text-transform: uppercase; color: var(--accent-color); margin-bottom: 10px; display: block; }
 
-        /* 3D Parallax Photo Frame */
-        .photo-section {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-        .photo-wrapper {
-            position: relative;
-            perspective: 1000px;
-        }
-        .photo-frame {
-            border-radius: 200px 200px 0 0;
-            overflow: hidden;
-            border: 1px solid var(--border-color);
-            padding: 15px;
-            background: #fff;
-            transform: rotate(-1deg);
-            transition: transform 0.5s ease;
-        }
-        .photo-frame:hover {
-            transform: rotate(0deg) scale(1.02);
-        }
-        .photo-frame img {
-            width: 100%;
-            height: 480px;
-            object-fit: cover;
-            border-radius: 185px 185px 0 0;
-        }
+        /* Photo Section */
+        .photo-section { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        .photo-frame { border-radius: 200px 200px 0 0; overflow: hidden; border: 1px solid var(--border-color); padding: 15px; background: #fff; transform: rotate(-1deg); transition: transform 0.5s ease; }
+        .photo-frame img { width: 100%; height: 480px; object-fit: cover; border-radius: 185px 185px 0 0; }
 
-        /* Timer */
-        .timer-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-            margin-top: 40px;
-        }
-        .timer-box {
-            border: 1px solid var(--border-color);
-            padding: 30px 10px;
-            text-align: center;
-            background: #fff;
-        }
-        .timer-box .val {
-            font-family: "Cormorant Garamond", serif;
-            font-size: 3.5rem;
-            font-weight: 300;
-            line-height: 1;
-            color: var(--text-color);
-        }
-        .timer-box .lbl {
-            font-size: 0.65rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            opacity: 0.5;
-            margin-top: 10px;
-            display: block;
-        }
+        /* Gallery Grid */
+        .gallery-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 30px; }
+        .gallery-item { overflow: hidden; border-radius: 200px 200px 0 0; border: 1px solid var(--border-color); padding: 10px; background: #fff; }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; border-radius: 190px 190px 0 0; }
+        .item-vertical { grid-row: span 2; height: 500px; }
+        .item-horizontal { height: 240px; }
+        .item-square { height: 240px; }
+        .item-tall { grid-row: span 2; height: 500px; }
 
-        /* Video Section */
-        .video-box {
-            border: 1px solid var(--border-color);
-            padding: 20px;
-            background: #fff;
-        }
-        .video-container {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            overflow: hidden;
-        }
-        .video-container video {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            object-fit: cover;
-        }
+        .timer-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 40px; }
+        .timer-box { border: 1px solid var(--border-color); padding: 30px 10px; text-align: center; background: #fff; }
+        .timer-box .val { font-family: "Cormorant Garamond", serif; font-size: 3.5rem; font-weight: 300; line-height: 1; }
+        .timer-box .lbl { font-size: 0.65rem; letter-spacing: 2px; text-transform: uppercase; opacity: 0.5; margin-top: 10px; display: block; }
 
-        /* Timeline */
-        .timeline-editorial {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        .tl-row {
-            display: flex;
-            justify-content: space-between;
-            padding: 25px 0;
-            border-bottom: 1px solid var(--border-color);
-        }
-        .tl-time {
-            font-family: "Cormorant Garamond", serif;
-            font-size: 1.8rem;
-            font-style: italic;
-            min-width: 100px;
-        }
-        .tl-detail {
-            text-align: right;
-            flex-grow: 1;
-        }
-        .tl-detail h4 {
-            font-weight: 400;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            font-size: 0.85rem;
-            margin-bottom: 5px;
-        }
-        .tl-detail p {
-            font-size: 0.8rem;
-            opacity: 0.6;
-        }
+        .video-box { border: 1px solid var(--border-color); padding: 20px; background: #fff; }
+        .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; }
+        .video-container video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; }
 
-        /* Form styling */
-        .form-card {
-            background: #fff;
-            border: 1px solid var(--border-color);
-            padding: 50px 40px;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        .form-group {
-            margin-bottom: 25px;
-            text-align: left;
-        }
-        .form-group label {
-            font-size: 0.7rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin-bottom: 8px;
-            display: block;
-            opacity: 0.8;
-        }
-        .form-control {
-            width: 100%;
-            padding: 15px 0;
-            border: none;
-            border-bottom: 1px solid var(--border-color);
-            background: transparent;
-            font-family: inherit;
-            font-size: 0.95rem;
-            color: inherit;
-            border-radius: 0;
-            transition: border-color 0.3s;
-        }
-        .form-control:focus {
-            outline: none;
-            border-bottom-color: var(--text-color);
-        }
+        .timeline-editorial { max-width: 600px; margin: 0 auto; }
+        .tl-row { display: flex; justify-content: space-between; padding: 25px 0; border-bottom: 1px solid var(--border-color); }
+        .tl-time { font-family: "Cormorant Garamond", serif; font-size: 1.8rem; font-style: italic; min-width: 100px; }
+        .tl-detail { text-align: right; flex-grow: 1; }
+        .tl-detail h4 { font-weight: 400; letter-spacing: 1px; text-transform: uppercase; font-size: 0.85rem; margin-bottom: 5px; }
 
-        .btn-editorial {
-            display: inline-block;
-            border: 1px solid var(--text-color);
-            background: var(--text-color);
-            color: #fff;
-            padding: 16px 45px;
-            text-decoration: none;
-            font-size: 0.75rem;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            font-weight: 500;
-            transition: all 0.3s;
-            cursor: pointer;
-        }
-        .btn-editorial:hover {
-            background: transparent;
-            color: var(--text-color);
-        }
+        /* FAQ Style */
+        .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; text-align: left; margin-top: 30px; }
+        .faq-card { background: #fff; padding: 25px; border-radius: 4px; border: 1px solid var(--border-color); }
+        .faq-card h4 { font-family: "Cormorant Garamond", serif; font-size: 1.25rem; font-style: italic; margin-bottom: 8px; }
 
-        /* Scroll Reveal */
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 1.2s ease, transform 1.2s ease;
-        }
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        .form-card { background: #fff; border: 1px solid var(--border-color); padding: 50px 40px; max-width: 600px; margin: 0 auto; }
+        .form-group { margin-bottom: 25px; text-align: left; }
+        .form-group label { font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px; display: block; }
+        .form-control { width: 100%; padding: 15px 0; border: none; border-bottom: 1px solid var(--border-color); background: transparent; font-family: inherit; font-size: 0.95rem; }
 
-        .footer {
-            background: #111;
-            color: #fff;
-            padding: 60px 20px;
-            text-align: center;
-            letter-spacing: 2px;
-        }
-        .footer-names {
-            font-family: "Cormorant Garamond", serif;
-            font-size: 2.5rem;
-            font-style: italic;
-            margin-bottom: 10px;
-        }
+        .btn-editorial { display: inline-block; border: 1px solid var(--text-color); background: var(--text-color); color: #fff; padding: 16px 45px; text-decoration: none; font-size: 0.75rem; letter-spacing: 3px; text-transform: uppercase; font-weight: 500; transition: all 0.3s; cursor: pointer; }
+        .btn-editorial:hover { background: transparent; color: var(--text-color); }
+
+        .reveal { opacity: 0; transform: translateY(30px); transition: opacity 1.2s ease, transform 1.2s ease; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        .footer { background: #111; color: #fff; padding: 60px 20px; text-align: center; }
+        .footer-names { font-family: "Cormorant Garamond", serif; font-size: 2.5rem; font-style: italic; }
         .hidden { display: none !important; }
 
         @media (max-width: 768px) {
             .hero-title { font-size: 3.5rem; }
             .photo-section { grid-template-columns: 1fr; gap: 40px; }
             .timer-grid { grid-template-columns: repeat(2, 1fr); }
+            .gallery-grid { grid-template-columns: 1fr; }
+            .item-vertical, .item-tall { height: 380px; }
+            .faq-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -335,27 +126,6 @@
         </div>
     </header>
 
-    <section class="section">
-        <div class="container reveal">
-            <div class="photo-section">
-                <div class="photo-wrapper">
-                    <div class="photo-frame">
-                        <img src="assets/couple.png" alt="Daniyar & Aruzhan">
-                    </div>
-                </div>
-                <div>
-                    <span class="section-label">Welcome</span>
-                    <h2 class="section-title" style="margin-bottom: 20px;">Save The Date</h2>
-                    <p style="font-size: 0.95rem; color: #555; margin-bottom: 25px;">
-                        Мы искренне приглашаем вас присоединиться к празднованию нашей свадьбы. 
-                        Этот день станет началом нашей новой совместной истории, и мы хотим разделить его с самыми близкими.
-                    </p>
-                    <a href="#rsvp" class="btn-editorial">R.S.V.P.</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section class="section" style="background: #F5EFEB;">
         <div class="container reveal">
             <div class="section-header">
@@ -367,6 +137,38 @@
                 <div class="timer-box"><span class="val" id="hours">00</span><span class="lbl">часов</span></div>
                 <div class="timer-box"><span class="val" id="minutes">00</span><span class="lbl">минут</span></div>
                 <div class="timer-box"><span class="val" id="seconds">00</span><span class="lbl">секунд</span></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container reveal">
+            <div class="photo-section">
+                <div class="photo-frame">
+                    <img src="assets/couple.png" alt="Daniyar & Aruzhan">
+                </div>
+                <div>
+                    <span class="section-label">Welcome</span>
+                    <h2 class="section-title" style="margin-bottom: 20px;">Save The Date</h2>
+                    <p style="font-size: 0.95rem; color: #555; margin-bottom: 25px;">
+                        Мы искренне приглашаем вас присоединиться к празднованию нашей свадьбы. Этот день станет началом нашей новой совместной истории.
+                    </p>
+                    <a href="#rsvp" class="btn-editorial">R.S.V.P.</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery -->
+    <section class="section" style="background: #F5EFEB;">
+        <div class="container reveal">
+            <span class="section-label" style="text-align:center; display:block;">GALLERY</span>
+            <h2 class="section-title" style="text-align:center; margin-bottom: 40px;">Наша фотогалерея</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item item-vertical"><img src="assets/couple.png" alt="Couple"></div>
+                <div class="gallery-item item-horizontal"><img src="assets/couple.png" alt="Couple"></div>
+                <div class="gallery-item item-square"><img src="assets/couple.png" alt="Couple"></div>
+                <div class="gallery-item item-tall"><img src="assets/couple.png" alt="Couple"></div>
             </div>
         </div>
     </section>
@@ -394,15 +196,41 @@
                 <h2 class="section-title">Программа вечера</h2>
             </div>
             <div class="timeline-editorial">
-                <div class="tl-row"><span class="tl-time">16:30</span><div class="tl-detail"><h4>Welcome Reception</h4><p>Сбор гостей, аперитив, струнный квартет.</p></div></div>
-                <div class="tl-row"><span class="tl-time">17:30</span><div class="tl-detail"><h4>Beta-ashar Ceremony</h4><p>Обряд приветствия невесты, выездная регистрация.</p></div></div>
-                <div class="tl-row"><span class="tl-time">18:30</span><div class="tl-detail"><h4>Dinner & Celebration</h4><p>Торжественный банкет, поздравления гостей.</p></div></div>
-                <div class="tl-row"><span class="tl-time">22:30</span><div class="tl-detail"><h4>Wedding Cake</h4><p>Вальс молодоженов и праздничный салют.</p></div></div>
+                <div class="tl-row"><span class="tl-time">16:30</span><div class="tl-detail"><h4>Welcome Reception</h4><p>Сбор гостей, аперитив.</p></div></div>
+                <div class="tl-row"><span class="tl-time">17:30</span><div class="tl-detail"><h4>Beta-ashar Ceremony</h4><p>Традиционный обряд открытия лица невесты.</p></div></div>
+                <div class="tl-row"><span class="tl-time">18:30</span><div class="tl-detail"><h4>Dinner & Celebration</h4><p>Торжественный банкет.</p></div></div>
+                <div class="tl-row"><span class="tl-time">22:30</span><div class="tl-detail"><h4>Wedding Cake</h4><p>Кульминация вечера.</p></div></div>
             </div>
         </div>
     </section>
 
+    <!-- FAQ -->
     <section class="section">
+        <div class="container reveal">
+            <span class="section-label" style="text-align:center; display:block;">FAQ</span>
+            <h2 class="section-title" style="text-align:center; margin-bottom: 40px;">Вопросы и ответы</h2>
+            <div class="faq-grid">
+                <div class="faq-card">
+                    <h4>Нужно ли дарить цветы?</h4>
+                    <p>Мы будем признательны за любой подарок, но цветы дарить не обязательно.</p>
+                </div>
+                <div class="faq-card">
+                    <h4>Как одеться?</h4>
+                    <p>Рекомендуем придерживаться элегантного классического стиля.</p>
+                </div>
+                <div class="faq-card">
+                    <h4>Будет ли трансфер?</h4>
+                    <p>Да, для иногородних гостей будет трансфер.</p>
+                </div>
+                <div class="faq-card">
+                    <h4>Когда дать ответ?</h4>
+                    <p>Пожалуйста, дайте ответ до 10 сентября 2026 года.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="background: #F5EFEB;">
         <div class="container reveal text-center">
             <span class="section-label">Venue</span>
             <h2 class="section-title" style="margin-bottom: 20px;">Локация</h2>
@@ -411,7 +239,7 @@
         </div>
     </section>
 
-    <section id="rsvp" class="section" style="background: #F5EFEB;">
+    <section id="rsvp" class="section">
         <div class="container reveal text-center">
             <div class="section-header">
                 <span class="section-label">Response</span>
@@ -421,24 +249,20 @@
                 <form id="rsvpForm">
                     <div class="form-group">
                         <label>Ваше имя и фамилия *</label>
-                        <input type="text" required placeholder="Пожалуйста, введите имя" class="form-control">
+                        <input type="text" required placeholder="Введите имя" class="form-control">
                     </div>
                     <div class="form-group">
                         <label>Сможете ли вы прийти? *</label>
                         <div style="display: flex; gap: 30px; margin-top: 10px;">
-                            <label style="display: flex; align-items: center; gap: 8px; font-size: 0.85rem;"><input type="radio" name="attendance" value="yes" checked> Да, с радостью</label>
-                            <label style="display: flex; align-items: center; gap: 8px; font-size: 0.85rem;"><input type="radio" name="attendance" value="no"> К сожалению, нет</label>
+                            <label style="display: flex; align-items: center; gap: 8px; font-size: 0.85rem;"><input type="radio" name="attendance" value="yes" checked> Да</label>
+                            <label style="display: flex; align-items: center; gap: 8px; font-size: 0.85rem;"><input type="radio" name="attendance" value="no"> Нет</label>
                         </div>
                     </div>
                     <div class="form-group" id="plusOneGroup">
                         <label>Имя спутника (+1)</label>
                         <input type="text" placeholder="Если вы будете парой" class="form-control">
                     </div>
-                    <div class="form-group">
-                        <label>Пожелания по кухне</label>
-                        <input type="text" placeholder="Особые пожелания..." class="form-control">
-                    </div>
-                    <button type="submit" class="btn-editorial" style="width: 100%;">Отправить ответ</button>
+                    <button type="submit" class="btn-editorial" style="width: 100%;">Отправить</button>
                 </form>
                 <div id="rsvpSuccess" class="hidden" style="margin-top: 20px;">
                     <h3 style="font-family: Cormorant Garamond, serif; font-size: 1.8rem; font-style: italic;">Ответ сохранен. Благодарим вас!</h3>
@@ -446,6 +270,11 @@
             </div>
         </div>
     </section>
+
+    <footer class="footer">
+        <p class="footer-names">Daniyar & Aruzhan</p>
+        <p>25.09.2026</p>
+    </footer>
 
     <script>
         const targetDate = new Date("September 25, 2026 16:30:00").getTime();
@@ -488,7 +317,6 @@
             });
         }
 
-        // Intersection Observer for elegant scroll animations
         const revealElements = document.querySelectorAll(".reveal");
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
