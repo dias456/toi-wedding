@@ -3,289 +3,460 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Данияр & Аружан — 3D Конверт</title>
-    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:wght@400;600;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Данияр & Аружан — Editorial Silk</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <style>
         :root {
-            --primary: #3F51B5;
-            --gold: #D4AF37;
-            --bg: #F4F6F9;
-            --envelope-bg: #E3E7ED;
-            --envelope-inside: #D1D8E0;
-            --wax-red: #A8282B;
+            --bg-color: #FAF6F0;
+            --text-color: #1A1A1A;
+            --accent-color: #C5A059;
+            --border-color: #E6E0D5;
         }
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: "Manrope", sans-serif; background: var(--bg); overflow-x: hidden; color: #2C3E50; }
+        body {
+            font-family: "Montserrat", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.8;
+            overflow-x: hidden;
+            letter-spacing: 0.5px;
+        }
 
-        /* Navigation */
-        .tpl-nav { position: sticky; top: 0; z-index: 9999; background: #1A1A1A; color: #fff; padding: 10px 16px; display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap; }
-        .tpl-nav-title { font-size: 0.82rem; font-weight: 700; color: var(--gold); }
+        /* Custom Navigation */
+        .tpl-nav { position: sticky; top: 0; z-index: 9999; background: rgba(26, 26, 26, 0.95); backdrop-filter: blur(10px); color: #fff; padding: 12px 16px; display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .tpl-nav-title { font-size: 0.8rem; font-weight: 500; color: var(--accent-color); letter-spacing: 2px; text-transform: uppercase; }
         .tpl-nav-links { display: flex; gap: 8px; flex-wrap: wrap; }
-        .tpl-link { color: #ccc; background: rgba(255,255,255,0.08); text-decoration: none; font-size: 0.75rem; font-weight: 600; padding: 5px 12px; border-radius: 20px; }
-        .tpl-link.active { background: var(--gold); color: #000; font-weight: 700; }
+        .tpl-link { color: #ccc; background: rgba(255,255,255,0.08); text-decoration: none; font-size: 0.72rem; font-weight: 500; padding: 6px 14px; border-radius: 30px; letter-spacing: 1px; transition: all 0.3s; }
+        .tpl-link.active { background: var(--accent-color); color: #000; font-weight: 600; }
 
-        .audio-control { position: fixed; bottom: 24px; right: 24px; z-index: 1000; background: #fff; border: 1.5px solid var(--gold); padding: 10px 18px; border-radius: 30px; cursor: pointer; display: flex; align-items: center; gap: 8px; font-weight: 600; box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
+        .audio-control { position: fixed; bottom: 24px; right: 24px; z-index: 1000; background: #fff; border: 1px solid var(--border-color); padding: 12px 20px; border-radius: 30px; cursor: pointer; display: flex; align-items: center; gap: 8px; font-size: 0.75rem; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 500; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
 
-        /* 3D Envelope Container */
-        .envelope-container {
-            height: 100vh; display: flex; align-items: center; justify-content: center;
-            background: radial-gradient(circle, #2C3E50 0%, #0F171E 100%);
-            perspective: 1500px; overflow: hidden; position: relative;
+        /* Hero */
+        .hero {
+            min-height: 95vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 80px 20px;
+            position: relative;
+            border-bottom: 1px solid var(--border-color);
         }
-        .envelope {
-            width: 450px; height: 300px; background: var(--envelope-bg);
-            position: relative; transform-style: preserve-3d;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.4);
-            transition: transform 1s ease;
+        .hero-border {
+            position: absolute;
+            inset: 30px;
+            border: 1px solid var(--border-color);
+            pointer-events: none;
         }
-        
-        /* Flap */
-        .flap {
-            position: absolute; top: 0; left: 0; width: 0; height: 0;
-            border-left: 225px solid transparent;
-            border-right: 225px solid transparent;
-            border-top: 150px solid var(--envelope-bg);
-            transform-origin: top; z-index: 4;
-            transition: transform 0.6s ease-in-out;
-            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.15));
-        }
-        
-        /* Pocket faces */
-        .pocket {
-            position: absolute; bottom: 0; left: 0; width: 100%; height: 100%;
-            background: var(--envelope-inside); z-index: 1;
-            clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 0, 50% 50%);
-        }
-        
-        /* Wax Seal */
-        .wax-seal {
-            position: absolute; top: 150px; left: 50%; transform: translate(-50%, -50%);
-            width: 70px; height: 70px; border-radius: 50%;
-            background: radial-gradient(circle, #C2383C 0%, #7D1518 100%);
-            border: 2px solid #5C0E10; color: #F3E5AB;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 1.5rem; font-weight: bold; cursor: pointer;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3); z-index: 5;
-            transition: transform 0.3s, opacity 0.5s;
-        }
-        .wax-seal:hover { transform: translate(-50%, -50%) scale(1.1); }
-
-        /* Letter card inside */
-        .letter-card {
-            position: absolute; bottom: 10px; left: 25px; width: 400px; height: 260px;
-            background: #FFFDF9; border: 1px solid #E2D2B3; padding: 25px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.15); z-index: 2;
-            transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
-            transform-style: preserve-3d;
+        .hero-content {
             text-align: center;
+            max-width: 800px;
+            z-index: 2;
         }
-        .letter-title { font-family: "Cormorant Garamond", serif; font-size: 2.2rem; color: #3E5C46; }
+        .hero-label {
+            font-size: 0.75rem;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            color: var(--accent-color);
+            margin-bottom: 30px;
+            display: block;
+        }
+        .hero-title {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 5.5rem;
+            font-weight: 300;
+            line-height: 1.1;
+            margin-bottom: 30px;
+        }
+        .hero-title span {
+            font-style: italic;
+            font-weight: 300;
+        }
+        .hero-date {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 1.8rem;
+            font-style: italic;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+        .hero-venue {
+            font-size: 0.75rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            opacity: 0.7;
+        }
 
-        /* Open State classes */
-        .envelope.open .flap { transform: rotateX(180deg); z-index: 1; }
-        .envelope.open .wax-seal { opacity: 0; pointer-events: none; }
-        .envelope.open .letter-card { transform: translateY(-280px) translateZ(50px) scale(1.08); z-index: 10; }
+        /* Elegant Sections */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+        .section {
+            padding: 100px 0;
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        .section-title {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 3rem;
+            font-weight: 300;
+            font-style: italic;
+        }
+        .section-label {
+            font-size: 0.7rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+            display: block;
+        }
 
-        /* Main site contents appearing after opening */
-        .main-invitation { display: none; opacity: 0; transition: opacity 1s ease; }
-        .main-invitation.show { display: block; opacity: 1; }
+        /* 3D Parallax Photo Frame */
+        .photo-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        .photo-wrapper {
+            position: relative;
+            perspective: 1000px;
+        }
+        .photo-frame {
+            border-radius: 200px 200px 0 0;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            padding: 15px;
+            background: #fff;
+            transform: rotate(-1deg);
+            transition: transform 0.5s ease;
+        }
+        .photo-frame:hover {
+            transform: rotate(0deg) scale(1.02);
+        }
+        .photo-frame img {
+            width: 100%;
+            height: 480px;
+            object-fit: cover;
+            border-radius: 185px 185px 0 0;
+        }
 
-        .container { max-width: 860px; margin: 0 auto; padding: 0 20px; }
-        .section { padding: 75px 0; text-align: center; }
-        .section-tag { font-size: 0.8rem; font-weight: 700; letter-spacing: 3px; color: #3E5C46; text-transform: uppercase; margin-bottom: 8px; display: inline-block; }
-        .section-title { font-family: "Cormorant Garamond", serif; font-size: 2.8rem; color: #3E5C46; margin-bottom: 20px; }
+        /* Timer */
+        .timer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-top: 40px;
+        }
+        .timer-box {
+            border: 1px solid var(--border-color);
+            padding: 30px 10px;
+            text-align: center;
+            background: #fff;
+        }
+        .timer-box .val {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 3.5rem;
+            font-weight: 300;
+            line-height: 1;
+            color: var(--text-color);
+        }
+        .timer-box .lbl {
+            font-size: 0.65rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            opacity: 0.5;
+            margin-top: 10px;
+            display: block;
+        }
 
-        .card { background: #fff; border-radius: 16px; padding: 45px 35px; border: 1px solid rgba(197, 160, 89, 0.3); box-shadow: 0 10px 30px rgba(0,0,0,0.05); margin-bottom: 30px; }
-        .btn { display: inline-block; background: #3E5C46; color: #fff; padding: 15px 36px; border-radius: 30px; text-decoration: none; font-weight: 600; border: none; cursor: pointer; }
-        
-        .timer-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; max-width: 600px; margin: 0 auto; }
-        .timer-box { background: #F4F7F4; border: 1px solid var(--gold); padding: 20px 10px; border-radius: 12px; }
-        .timer-box .val { font-family: "Cormorant Garamond", serif; font-size: 3rem; color: #3E5C46; font-weight: 700; line-height: 1; display: block; }
+        /* Video Section */
+        .video-box {
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            background: #fff;
+        }
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+        }
+        .video-container video {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            object-fit: cover;
+        }
 
-        .video-wrapper { border-radius: 16px; overflow: hidden; border: 2px solid var(--gold); max-width: 750px; margin: 0 auto; background: #000; }
-        .video-wrapper video { width: 100%; height: 400px; object-fit: cover; display: block; }
+        /* Timeline */
+        .timeline-editorial {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .tl-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 25px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .tl-time {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 1.8rem;
+            font-style: italic;
+            min-width: 100px;
+        }
+        .tl-detail {
+            text-align: right;
+            flex-grow: 1;
+        }
+        .tl-detail h4 {
+            font-weight: 400;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            margin-bottom: 5px;
+        }
+        .tl-detail p {
+            font-size: 0.8rem;
+            opacity: 0.6;
+        }
 
-        .timing-item { display: flex; align-items: center; gap: 20px; background: #F4F7F4; border-left: 4px solid #3E5C46; padding: 18px 22px; margin-bottom: 12px; border-radius: 0 12px 12px 0; text-align: left; }
-        .timing-time { font-family: "Cormorant Garamond", serif; font-size: 1.8rem; color: #3E5C46; font-weight: 700; min-width: 80px; }
+        /* Form styling */
+        .form-card {
+            background: #fff;
+            border: 1px solid var(--border-color);
+            padding: 50px 40px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .form-group {
+            margin-bottom: 25px;
+            text-align: left;
+        }
+        .form-group label {
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            display: block;
+            opacity: 0.8;
+        }
+        .form-control {
+            width: 100%;
+            padding: 15px 0;
+            border: none;
+            border-bottom: 1px solid var(--border-color);
+            background: transparent;
+            font-family: inherit;
+            font-size: 0.95rem;
+            color: inherit;
+            border-radius: 0;
+            transition: border-color 0.3s;
+        }
+        .form-control:focus {
+            outline: none;
+            border-bottom-color: var(--text-color);
+        }
 
-        .form-group { margin-bottom: 20px; text-align: left; }
-        .form-group label { display: block; font-weight: 600; font-size: 0.9rem; margin-bottom: 6px; }
-        .form-control { width: 100%; padding: 14px; border-radius: 10px; border: 1px solid #ccc; font-family: inherit; font-size: 1rem; background: #FDFDFD; }
+        .btn-editorial {
+            display: inline-block;
+            border: 1px solid var(--text-color);
+            background: var(--text-color);
+            color: #fff;
+            padding: 16px 45px;
+            text-decoration: none;
+            font-size: 0.75rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-weight: 500;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        .btn-editorial:hover {
+            background: transparent;
+            color: var(--text-color);
+        }
 
-        .footer { background: #1C261E; color: #fff; padding: 40px 20px; text-align: center; }
-        .footer-names { font-family: "Alex Brush", cursive; font-size: 3rem; color: var(--gold); }
+        /* Scroll Reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1.2s ease, transform 1.2s ease;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .footer {
+            background: #111;
+            color: #fff;
+            padding: 60px 20px;
+            text-align: center;
+            letter-spacing: 2px;
+        }
+        .footer-names {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 2.5rem;
+            font-style: italic;
+            margin-bottom: 10px;
+        }
         .hidden { display: none !important; }
 
-        /* Floating Reveal on Scroll */
-        .reveal { opacity: 0; transform: translateY(40px); transition: all 1s ease; }
-        .reveal.active { opacity: 1; transform: translateY(0); }
-
         @media (max-width: 768px) {
-            .envelope { width: 320px; height: 213px; }
-            .flap { border-left-width: 160px; border-right-width: 160px; border-top-width: 106px; }
-            .letter-card { width: 280px; height: 180px; left: 20px; }
-            .letter-title { font-size: 1.5rem; }
-            .envelope.open .letter-card { transform: translateY(-180px) translateZ(50px) scale(1.08); }
+            .hero-title { font-size: 3.5rem; }
+            .photo-section { grid-template-columns: 1fr; gap: 40px; }
             .timer-grid { grid-template-columns: repeat(2, 1fr); }
         }
     </style>
 </head>
 <body>
-    <nav class="tpl-nav"><span class="tpl-nav-title"><i class="fa-solid fa-shapes"></i> Шаблоны WedWed:</span><div class="tpl-nav-links"><a href="index.html" class="tpl-link">1. Эвкалипт и Золото 🌿</a>
-<a href="design2.html" class="tpl-link active">2. 3D Конверт 💌</a>
-<a href="design3.html" class="tpl-link">3. 3D Tilt & Параллакс 🌙</a>
-<a href="design4.html" class="tpl-link">4. 3D Шанырак & Орнамент ⚜️</a>
-<a href="design5.html" class="tpl-link">5. 3D Книга-Альбом 📖</a>
+    <nav class="tpl-nav"><span class="tpl-nav-title"><i class="fa-solid fa-shapes"></i> Шаблоны Pinterest:</span><div class="tpl-nav-links"><a href="index.html" class="tpl-link">1. Эвкалипт и Золото 🌿</a>
+<a href="design2.html" class="tpl-link active">2. Editorial Silk 📰</a>
+<a href="design3.html" class="tpl-link">3. Vellum Overlay 📜</a>
+<a href="design4.html" class="tpl-link">4. Blind Embossed 🖨️</a>
+<a href="design5.html" class="tpl-link">5. Organic Terracotta 🏺</a>
 </div></nav>
 
-    <div class="audio-control" id="audioToggle">🌿 <span>Музыка</span></div>
+    <div class="audio-control" id="audioToggle">PLAY AUDIO</div>
     <audio id="bgMusic" loop src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=wedding-romantic-piano-112199.mp3"></audio>
 
-    <!-- 3D Envelope Header -->
-    <div class="envelope-container" id="envContainer">
-        <div class="envelope" id="myEnvelope">
-            <div class="flap"></div>
-            <div class="pocket"></div>
-            <div class="wax-seal" id="sealButton">D&A</div>
-            <div class="letter-card">
-                <p style="letter-spacing: 2px; font-size: 0.65rem; color: var(--gold); font-weight: 700; margin-bottom: 8px;">СВАДЕБНОЕ ПРИГЛАШЕНИЕ</p>
-                <h2 class="letter-title">Данияр & Аружан</h2>
-                <hr style="border: none; border-top: 1px solid #E2D2B3; margin: 12px 0;">
-                <p style="font-size: 0.85rem; color: #555;">Нажмите на печать, чтобы открыть письмо</p>
+    <header class="hero">
+        <div class="hero-border"></div>
+        <div class="hero-content">
+            <span class="hero-label">The Wedding Invitation</span>
+            <h1 class="hero-title">Daniyar <span>&</span> Aruzhan</h1>
+            <p class="hero-date">25 September 2026</p>
+            <p class="hero-venue">Grand Ballroom Royal, Almaty</p>
+        </div>
+    </header>
+
+    <section class="section">
+        <div class="container reveal">
+            <div class="photo-section">
+                <div class="photo-wrapper">
+                    <div class="photo-frame">
+                        <img src="assets/couple.png" alt="Daniyar & Aruzhan">
+                    </div>
+                </div>
+                <div>
+                    <span class="section-label">Welcome</span>
+                    <h2 class="section-title" style="margin-bottom: 20px;">Save The Date</h2>
+                    <p style="font-size: 0.95rem; color: #555; margin-bottom: 25px;">
+                        Мы искренне приглашаем вас присоединиться к празднованию нашей свадьбы. 
+                        Этот день станет началом нашей новой совместной истории, и мы хотим разделить его с самыми близкими.
+                    </p>
+                    <a href="#rsvp" class="btn-editorial">R.S.V.P.</a>
+                </div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <!-- Main site which appears dynamically -->
-    <div class="main-invitation" id="mainInv">
-        <section class="section" style="background: #FFFDF9;">
-            <div class="container reveal">
-                <span class="section-tag">ОБРАТНЫЙ ОТСЧЕТ</span>
-                <h2 class="section-title">До нашей свадьбы осталось</h2>
-                <div class="timer-grid">
-                    <div class="timer-box"><span class="val" id="days">00</span>дней</div>
-                    <div class="timer-box"><span class="val" id="hours">00</span>часов</div>
-                    <div class="timer-box"><span class="val" id="minutes">00</span>минут</div>
-                    <div class="timer-box"><span class="val" id="seconds">00</span>секунд</div>
-                </div>
+    <section class="section" style="background: #F5EFEB;">
+        <div class="container reveal">
+            <div class="section-header">
+                <span class="section-label">Countdown</span>
+                <h2 class="section-title">До торжества осталось</h2>
             </div>
-        </section>
-
-        <section class="section">
-            <div class="container reveal">
-                <div class="card">
-                    <span class="section-tag">ПРИГЛАШЕНИЕ</span>
-                    <h2 class="section-title">Приглашаем разделить нашу радость</h2>
-                    <p style="font-size: 1.1rem; color: #555; max-width: 650px; margin: 0 auto 25px;">
-                        В этот счастливый день мы создаем нашу семью. Будем безумно рады разделить торжественные моменты с самыми близкими и родными людьми!
-                    </p>
-                    <p style="font-family: 'Alex Brush', cursive; font-size: 3rem; color: var(--gold);">Данияр & Аружан</p>
-                </div>
+            <div class="timer-grid">
+                <div class="timer-box"><span class="val" id="days">00</span><span class="lbl">дней</span></div>
+                <div class="timer-box"><span class="val" id="hours">00</span><span class="lbl">часов</span></div>
+                <div class="timer-box"><span class="val" id="minutes">00</span><span class="lbl">минут</span></div>
+                <div class="timer-box"><span class="val" id="seconds">00</span><span class="lbl">секунд</span></div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="section" style="background: #FFFDF9;">
-            <div class="container reveal">
-                <span class="section-tag">LOVE STORY VIDEO</span>
-                <h2 class="section-title">Наше видео-приглашение</h2>
-                <div class="video-wrapper">
+    <section class="section">
+        <div class="container reveal">
+            <div class="section-header">
+                <span class="section-label">Love Story</span>
+                <h2 class="section-title">Видео-приглашение</h2>
+            </div>
+            <div class="video-box">
+                <div class="video-container">
                     <video controls playsinline poster="assets/couple.png">
                         <source src="https://assets.mixkit.co/videos/preview/mixkit-romantic-couple-on-their-wedding-day-42857-large.mp4" type="video/mp4">
                     </video>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="section">
-            <div class="container reveal">
-                <span class="section-tag">ПРОГРАММА</span>
-                <h2 class="section-title">Тайминг свадьбы</h2>
-                <div style="max-width: 650px; margin: 0 auto;">
-                    <div class="timing-item"><div class="timing-time">16:30</div><div><h4>Welcome Drink</h4><p>Сбор гостей, фуршет, фотосессия.</p></div></div>
-                    <div class="timing-item"><div class="timing-time">17:30</div><div><h4>Беташар</h4><p>Торжественная выездная регистрация.</p></div></div>
-                    <div class="timing-item"><div class="timing-time">18:30</div><div><h4>Банкет</h4><p>Праздничный ужин, поздравления, шоу.</p></div></div>
-                    <div class="timing-item"><div class="timing-time">22:30</div><div><h4>Свадебный торт</h4><p>Кульминация вечера и салют.</p></div></div>
-                </div>
+    <section class="section" style="background: #F5EFEB;">
+        <div class="container reveal">
+            <div class="section-header">
+                <span class="section-label">Timing</span>
+                <h2 class="section-title">Программа вечера</h2>
             </div>
-        </section>
-
-        <section class="section" style="background: #FFFDF9;">
-            <div class="container reveal">
-                <div class="card" style="max-width: 650px; margin: 0 auto;">
-                    <span class="section-tag">ЛОКАЦИЯ</span>
-                    <h2 class="section-title">Grand Ballroom Royal</h2>
-                    <p style="font-size: 1.05rem; color: #666; margin-bottom: 20px;">мкр. Самал-2, ул. Жолдасбекова, 15, г. Алматы</p>
-                    <a href="https://2gis.kz/almaty/search/Grand%20Ballroom" target="_blank" class="btn">2GIS Навигатор 🧭</a>
-                </div>
+            <div class="timeline-editorial">
+                <div class="tl-row"><span class="tl-time">16:30</span><div class="tl-detail"><h4>Welcome Reception</h4><p>Сбор гостей, аперитив, струнный квартет.</p></div></div>
+                <div class="tl-row"><span class="tl-time">17:30</span><div class="tl-detail"><h4>Beta-ashar Ceremony</h4><p>Обряд приветствия невесты, выездная регистрация.</p></div></div>
+                <div class="tl-row"><span class="tl-time">18:30</span><div class="tl-detail"><h4>Dinner & Celebration</h4><p>Торжественный банкет, поздравления гостей.</p></div></div>
+                <div class="tl-row"><span class="tl-time">22:30</span><div class="tl-detail"><h4>Wedding Cake</h4><p>Вальс молодоженов и праздничный салют.</p></div></div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="rsvp" class="section">
-            <div class="container reveal">
-                <div class="card" style="max-width: 650px; margin: 0 auto;">
-                    <span class="section-tag">RSVP</span>
-                    <h2 class="section-title">Подтверждение присутствия</h2>
-                    <form id="rsvpForm">
-                        <div class="form-group"><label>Ваше Имя и Фамилия *</label><input type="text" required placeholder="Арман Сарсенов" class="form-control"></div>
-                        <div class="form-group"><label>Сможете прийти? *</label><div style="display:flex; gap:20px;"><label><input type="radio" name="attendance" value="yes" checked> Да, приду!</label><label><input type="radio" name="attendance" value="no"> Не смогу</label></div></div>
-                        <div class="form-group" id="plusOneGroup"><label>Имя спутника (+1)</label><input type="text" placeholder="Если будете со спутником" class="form-control"></div>
-                        <div class="form-group"><label>Пожелания по меню / Аллергии</label><textarea rows="3" placeholder="Ваши пожелания..." class="form-control"></textarea></div>
-                        <button type="submit" class="btn" style="width:100%;">Отправить ответ 💌</button>
-                    </form>
-                    <div id="rsvpSuccess" class="hidden" style="margin-top:20px;">
-                        <h3 style="color:#3E5C46;">Спасибо! Ваш ответ принят! 🎉</h3>
+    <section class="section">
+        <div class="container reveal text-center">
+            <span class="section-label">Venue</span>
+            <h2 class="section-title" style="margin-bottom: 20px;">Локация</h2>
+            <p style="font-size: 1rem; margin-bottom: 30px; opacity: 0.7;">Grand Ballroom Royal, мкр. Самал-2, ул. Жолдасбекова, 15, Алматы</p>
+            <a href="https://2gis.kz/almaty/search/Grand%20Ballroom" target="_blank" class="btn-editorial" style="background:transparent; color:#000;">Открыть 2GIS</a>
+        </div>
+    </section>
+
+    <section id="rsvp" class="section" style="background: #F5EFEB;">
+        <div class="container reveal text-center">
+            <div class="section-header">
+                <span class="section-label">Response</span>
+                <h2 class="section-title">Подтверждение присутствия</h2>
+            </div>
+            <div class="form-card">
+                <form id="rsvpForm">
+                    <div class="form-group">
+                        <label>Ваше имя и фамилия *</label>
+                        <input type="text" required placeholder="Пожалуйста, введите имя" class="form-control">
                     </div>
+                    <div class="form-group">
+                        <label>Сможете ли вы прийти? *</label>
+                        <div style="display: flex; gap: 30px; margin-top: 10px;">
+                            <label style="display: flex; align-items: center; gap: 8px; font-size: 0.85rem;"><input type="radio" name="attendance" value="yes" checked> Да, с радостью</label>
+                            <label style="display: flex; align-items: center; gap: 8px; font-size: 0.85rem;"><input type="radio" name="attendance" value="no"> К сожалению, нет</label>
+                        </div>
+                    </div>
+                    <div class="form-group" id="plusOneGroup">
+                        <label>Имя спутника (+1)</label>
+                        <input type="text" placeholder="Если вы будете парой" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label>Пожелания по кухне</label>
+                        <input type="text" placeholder="Особые пожелания..." class="form-control">
+                    </div>
+                    <button type="submit" class="btn-editorial" style="width: 100%;">Отправить ответ</button>
+                </form>
+                <div id="rsvpSuccess" class="hidden" style="margin-top: 20px;">
+                    <h3 style="font-family: Cormorant Garamond, serif; font-size: 1.8rem; font-style: italic;">Ответ сохранен. Благодарим вас!</h3>
                 </div>
             </div>
-        </section>
-
-        <footer class="footer">
-            <p class="footer-names">Данияр & Аружан</p>
-            <p class="footer-date">25.09.2026 | С любовью</p>
-        </footer>
-    </div>
+        </div>
+    </section>
 
     <script>
-        const sealButton = document.getElementById("sealButton");
-        const myEnvelope = document.getElementById("myEnvelope");
-        const envContainer = document.getElementById("envContainer");
-        const mainInv = document.getElementById("mainInv");
-
-        sealButton.addEventListener("click", () => {
-            myEnvelope.classList.add("open");
-            confetti({ particleCount: 60, spread: 50, origin: { y: 0.6 } });
-            setTimeout(() => {
-                envContainer.style.transition = "all 1s ease";
-                envContainer.style.height = "0vh";
-                envContainer.style.minHeight = "0";
-                envContainer.style.overflow = "hidden";
-                mainInv.classList.add("show");
-            }, 1800);
-        });
-
-        // Scroll reveals
-        window.addEventListener("scroll", () => {
-            const reveals = document.querySelectorAll(".reveal");
-            reveals.forEach(r => {
-                const windowHeight = window.innerHeight;
-                const elementTop = r.getBoundingClientRect().top;
-                if (elementTop < windowHeight - 100) {
-                    r.classList.add("active");
-                }
-            });
-        });
-
         const targetDate = new Date("September 25, 2026 16:30:00").getTime();
         function updateTimer() {
             const now = new Date().getTime();
             const diff = targetDate - now;
             if (diff > 0) {
-                document.getElementById("days").innerText = Math.floor(diff / (1000 * 60 * 60 * 24));
-                document.getElementById("hours").innerText = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                document.getElementById("minutes").innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-                document.getElementById("seconds").innerText = Math.floor((diff % (1000 * 60)) / 1000);
+                if(document.getElementById("days")) document.getElementById("days").innerText = Math.floor(diff / (1000 * 60 * 60 * 24));
+                if(document.getElementById("hours")) document.getElementById("hours").innerText = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                if(document.getElementById("minutes")) document.getElementById("minutes").innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                if(document.getElementById("seconds")) document.getElementById("seconds").innerText = Math.floor((diff % (1000 * 60)) / 1000);
             }
         }
         setInterval(updateTimer, 1000); updateTimer();
@@ -293,19 +464,40 @@
         const bgMusic = document.getElementById("bgMusic");
         const audioToggle = document.getElementById("audioToggle");
         let isPlaying = false;
-        audioToggle.addEventListener("click", () => {
-            if (isPlaying) { bgMusic.pause(); isPlaying = false; }
-            else { bgMusic.play().then(() => { isPlaying = true; }).catch(e => console.log(e)); }
-        });
+        if(audioToggle && bgMusic) {
+            audioToggle.addEventListener("click", () => {
+                if (isPlaying) { bgMusic.pause(); isPlaying = false; }
+                else { bgMusic.play().then(() => { isPlaying = true; }).catch(e => console.log(e)); }
+            });
+        }
 
         const rsvpForm = document.getElementById("rsvpForm");
         const rsvpSuccess = document.getElementById("rsvpSuccess");
-        rsvpForm.addEventListener("submit", e => {
-            e.preventDefault();
-            rsvpForm.classList.add("hidden");
-            rsvpSuccess.classList.remove("hidden");
-            confetti({ particleCount: 80, spread: 70, origin: { y: 0.6 } });
-        });
+        const plusOneGroup = document.getElementById("plusOneGroup");
+        if(rsvpForm) {
+            document.querySelectorAll('input[name="attendance"]').forEach(r => {
+                r.addEventListener("change", e => {
+                    if(plusOneGroup) plusOneGroup.style.display = e.target.value === "no" ? "none" : "block";
+                });
+            });
+            rsvpForm.addEventListener("submit", e => {
+                e.preventDefault();
+                rsvpForm.classList.add("hidden");
+                if(rsvpSuccess) rsvpSuccess.classList.remove("hidden");
+                confetti({ particleCount: 80, spread: 70, origin: { y: 0.6 } });
+            });
+        }
+
+        // Intersection Observer for elegant scroll animations
+        const revealElements = document.querySelectorAll(".reveal");
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("active");
+                }
+            });
+        }, { threshold: 0.1 });
+        revealElements.forEach(el => observer.observe(el));
     </script>
 </body>
 </html>
